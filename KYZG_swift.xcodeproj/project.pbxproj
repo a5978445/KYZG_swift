@@ -13,6 +13,8 @@
 		140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417601E5E834E000CF459 /* QuestionsTableViewController.swift */; };
 		140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417621E5E8368000CF459 /* ActivityTableViewController.swift */; };
 		1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */; };
+		141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107221E6122A1000E7C66 /* InformationTableViewCell.swift */; };
+		141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */; };
 		1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */; };
 		1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417CE1D1E5D7F6200048DB7 /* NavButtons.swift */; };
 		143EF2951E5D291500544B8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2941E5D291500544B8B /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 		140417601E5E834E000CF459 /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		140417621E5E8368000CF459 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewControllerModel.swift; sourceTree = "<group>"; };
+		141107221E6122A1000E7C66 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCellModel.swift; sourceTree = "<group>"; };
 		1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundTableViewController.swift; sourceTree = "<group>"; };
 		1417CE1D1E5D7F6200048DB7 /* NavButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavButtons.swift; sourceTree = "<group>"; };
 		143EF2911E5D291500544B8B /* KYZG_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYZG_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +129,7 @@
 		140417661E5E83E7000CF459 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				140417671E5EA6F1000CF459 /* comprehensive */,
+				140417671E5EA6F1000CF459 /* comprehensiveViewController */,
 				1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */,
 				143EF2C41E5D2D3500544B8B /* RootViewController.swift */,
 				143EF2961E5D291500544B8B /* ComposeViewController.swift */,
@@ -134,16 +138,15 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
-		140417671E5EA6F1000CF459 /* comprehensive */ = {
+		140417671E5EA6F1000CF459 /* comprehensiveViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1404175C1E5E82E5000CF459 /* InformationTableViewController.swift */,
-				1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */,
+				141107211E61223F000E7C66 /* InformationTableViewController */,
 				1404175E1E5E8310000CF459 /* BlogTableViewController.swift */,
 				140417601E5E834E000CF459 /* QuestionsTableViewController.swift */,
 				140417621E5E8368000CF459 /* ActivityTableViewController.swift */,
 			);
-			name = comprehensive;
+			name = comprehensiveViewController;
 			sourceTree = "<group>";
 		};
 		141107191E6113D1000E7C66 /* model */ = {
@@ -153,6 +156,17 @@
 				147689A01E5EE54200BD192B /* OSCBanner.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		141107211E61223F000E7C66 /* InformationTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1404175C1E5E82E5000CF459 /* InformationTableViewController.swift */,
+				1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */,
+				141107221E6122A1000E7C66 /* InformationTableViewCell.swift */,
+				141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */,
+			);
+			name = InformationTableViewController;
 			sourceTree = "<group>";
 		};
 		143EF2881E5D291500544B8B = {
@@ -416,6 +430,7 @@
 			files = (
 				14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */,
 				143EF2971E5D291500544B8B /* ComposeViewController.swift in Sources */,
+				141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */,
 				147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */,
 				140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */,
 				1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */,
@@ -425,6 +440,7 @@
 				143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */,
 				1404175D1E5E82E5000CF459 /* InformationTableViewController.swift in Sources */,
 				140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */,
+				141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */,
 				14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */,
 				1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */,
 				1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */,

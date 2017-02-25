@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MJRefresh
 
 
 class InformationTableViewController: UITableViewController {
@@ -16,7 +17,7 @@ class InformationTableViewController: UITableViewController {
     let imageScrollView = BannerScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 144))
     
     var model = InformationTableViewControllerModel()
-    
+    var cellModels = [InformationTableViewCellModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,57 +30,53 @@ class InformationTableViewController: UITableViewController {
         self.tableView.tableHeaderView = imageScrollView
         self.tableView.tableHeaderView?.backgroundColor = UIColor.red
         self.tableView.backgroundColor = UIColor.green
-        
-        
-        requestImageInfo()
-        reqeustNews()
-    }
-    
-    func reqeustNews() ->Void {
-        Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + "news", method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { response in
-            if response.result.value != nil {
-                
-                let dic = JSON(data: response.data!)
-                print(dic)
-                if dic["code"] == 1 {
-                   
-                   self.model.setInfomations(infomationsJSON: dic["result"]["items"].arrayValue)
-                
-                    
-                     print("sucess")
-                } else {
-                    print(response.error)
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+          //  [weak self] in
+          //  self.reqeustNews()
+            self.model.refreshNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
+                if error == nil {
+                    self.cellModels = models!
+                    self.tableView.reloadData()
+                } else { //to do待处理
+                    print(error!)
                 }
-            }
+                self.tableView.mj_header.endRefreshing()
+            })
         })
-
         
-        //  NSMutableURLRequest *request = [self newsRequest:@{@"pageToken":_nextPageToken}];
-    }
-    
-    func requestImageInfo() ->Void{
-        Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + "banner", method: HTTPMethod.get, parameters: ["catalog":Int(1)], encoding:URLEncoding.default , headers: nil).responseJSON { response in
-            
-            
-            if response.result.value != nil {
-             //   print("JSON: \(aJSON)")
-                let dic = JSON(data: response.data!)
-                if dic["code"] == 1 {
-                    print("sucess")
-                    
-                    self.model.setBanners(banersJSON: dic["result"]["items"].arrayValue)
-                    
-                    self.imageScrollView.urls = self.model.imageURLs()
-                    
-                } else { //处理错误信息
-                    print(dic["code"])
+        
+        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { 
+            self.model.appendNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
+                if error == nil {
+                    self.cellModels = models!
+                    self.tableView.reloadData()
+                } else { //to do待处理
+                    print(error!)
                 }
-                
-                
+                self.tableView.mj_footer.endRefreshing()
+            })
+        })
+        
+        //利用iOS8新特性计算cell的实际高度
+        self.tableView.estimatedRowHeight = 80
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+      //  self.requestImageInfo()
+        model.requestImageInfo { (URLs:[String]?, error:NSError?) in
+            if error == nil {
+            self.imageScrollView.urls = URLs;
+            } else { //to do待处理
+                print(error!)
             }
         }
         
+        self.tableView.mj_header.beginRefreshing()
+        
+        
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         imageScrollView.startTimer()
@@ -98,23 +95,30 @@ class InformationTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cellModels.count
     }
     
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell:InformationTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as! InformationTableViewCell?
+        if cell == nil {
+            cell = InformationTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        }
+        
+       // cell?.textLabel?.text = "hello"
+        cell?.model = cellModels[indexPath.row]
+        return cell!
+    }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100.0
+//    }
+    
     
     /*
      // Override to support conditional editing of the table view.

@@ -41,5 +41,5 @@ class OSCInformation: NSObject {
     
     var infoType:InformationType?
     
-    
+  
 }
