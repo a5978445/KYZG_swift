@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "143EF2901E5D291500544B8B"
+               BuildableName = "KYZG_swift.app"
+               BlueprintName = "KYZG_swift"
+               ReferencedContainer = "container:KYZG_swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "143EF2A41E5D291500544B8B"
+               BuildableName = "KYZG_swiftTests.xctest"
+               BlueprintName = "KYZG_swiftTests"
+               ReferencedContainer = "container:KYZG_swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "143EF2AF1E5D291500544B8B"
+               BuildableName = "KYZG_swiftUITests.xctest"
+               BlueprintName = "KYZG_swiftUITests"
+               ReferencedContainer = "container:KYZG_swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "143EF2901E5D291500544B8B"
+            BuildableName = "KYZG_swift.app"
+            BlueprintName = "KYZG_swift"
+            ReferencedContainer = "container:KYZG_swift.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "143EF2901E5D291500544B8B"
+            BuildableName = "KYZG_swift.app"
+            BlueprintName = "KYZG_swift"
+            ReferencedContainer = "container:KYZG_swift.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "143EF2901E5D291500544B8B"
+            BuildableName = "KYZG_swift.app"
+            BlueprintName = "KYZG_swift"
+            ReferencedContainer = "container:KYZG_swift.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

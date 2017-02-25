@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 16,
+          "top" : 16,
+          "right" : 21,
+          "left" : 21
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "bg_balloon_right.pdf",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

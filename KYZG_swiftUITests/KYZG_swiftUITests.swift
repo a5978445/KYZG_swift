@@ -3,7 +3,7 @@
 //  KYZG_swiftUITests
 //
 //  Created by LiTengFang on 17/2/22.
-//  Copyright © 2017年 LiTengFang. All rights reserved.
+//  Copyright © 2017 LiTengFang. All rights reserved.
 //
 
 import XCTest
