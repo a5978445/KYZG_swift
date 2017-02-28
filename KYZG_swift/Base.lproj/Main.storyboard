@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C4J-s2-CmC">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C4J-s2-CmC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,7 +32,7 @@
         <!--Item-->
         <scene sceneID="0xp-NT-KtH">
             <objects>
-                <navigationController id="ucM-Ly-1Ii" sceneMemberID="viewController">
+                <navigationController id="ucM-Ly-1Ii" customClass="NavigationController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="hWa-8t-Tye"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sb3-IV-Q1Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -71,7 +71,7 @@
         <!--Item-->
         <scene sceneID="yY1-S4-Aaf">
             <objects>
-                <navigationController id="Ptx-1A-INs" sceneMemberID="viewController">
+                <navigationController id="Ptx-1A-INs" customClass="NavigationController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="9Bw-4d-BY7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZ7-yk-BsO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -107,7 +107,7 @@
         <!--Item-->
         <scene sceneID="IGC-2f-6wH">
             <objects>
-                <navigationController id="19c-mg-YOd" sceneMemberID="viewController">
+                <navigationController id="19c-mg-YOd" customClass="NavigationController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xdd-92-j6Q"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M3D-C9-WFA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -143,7 +143,7 @@
         <!--Item-->
         <scene sceneID="BoY-Tk-gQq">
             <objects>
-                <navigationController id="Rgo-sV-n1c" sceneMemberID="viewController">
+                <navigationController id="Rgo-sV-n1c" customClass="NavigationController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rPQ-5T-hX9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pIm-qF-k5n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -160,7 +160,7 @@
         <!--Item-->
         <scene sceneID="LyH-ZD-pkN">
             <objects>
-                <navigationController id="gas-gT-04T" sceneMemberID="viewController">
+                <navigationController id="gas-gT-04T" customClass="NavigationController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="al3-Qg-Bq3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QEp-PG-mpO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

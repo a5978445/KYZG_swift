@@ -13,7 +13,8 @@ struct cellModel {
     var imageName:String?
     var reponse:()->Void
     
-    public init(title:String,imageName:String,reponse:@escaping ()->Void) {
+    
+    public init(title:String,imageName:String?,reponse:@escaping ()->Void) {
         self.title = title;
         self.imageName = imageName;
         self.reponse = reponse
@@ -23,6 +24,8 @@ struct cellModel {
 
 class MyTableViewController: UITableViewController {
 
+    var headerView:MyTableHeaderView?
+    
     let model = [cellModel(title:"我的消息",imageName:"ic_my_messege",reponse:{()->Void in }),
                  cellModel(title:"我的博客",imageName:"ic_my_blog",reponse:{()->Void in }),
                  cellModel(title:"我的活动",imageName:"ic_my_event",reponse:{()->Void in }),
@@ -30,16 +33,32 @@ class MyTableViewController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-      
-        title = "我的"
         
-      UIColor.red
+        
+        
+        headerView = MyTableHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 280 + 64))
+        headerView?.showLogin = {[unowned self] ()->() in self.navigationController?.pushViewController(LoginViewController(), animated: true) }
+        headerView?.showSet = {[unowned self] ()->() in self.navigationController?.pushViewController(SettingViewController(), animated: true) }
+        
+        
+        tableView.tableHeaderView = headerView
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 44, 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,14 @@
 		1404175F1E5E8310000CF459 /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404175E1E5E8310000CF459 /* BlogTableViewController.swift */; };
 		140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417601E5E834E000CF459 /* QuestionsTableViewController.swift */; };
 		140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417621E5E8368000CF459 /* ActivityTableViewController.swift */; };
+		140C67CE1E65079600B99E46 /* QuartzCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */; };
+		140C67D11E65214A00B99E46 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140C67D01E65214A00B99E46 /* LoginViewController.xib */; };
+		140C67D31E65215A00B99E46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67D21E65215A00B99E46 /* LoginViewController.swift */; };
+		140C67D61E6523AF00B99E46 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67D51E6523AF00B99E46 /* SettingViewController.swift */; };
+		140C67DF1E653E6000B99E46 /* String+sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67DE1E653E6000B99E46 /* String+sha1.swift */; };
+		140DE9971E63B4D10014176E /* MyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140DE9961E63B4D10014176E /* MyTableHeaderView.swift */; };
+		140DE99A1E63B6DC0014176E /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140DE9991E63B6DC0014176E /* UserInfoView.swift */; };
+		140DE99C1E63B7770014176E /* UserInfoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140DE99B1E63B7770014176E /* UserInfoButtons.swift */; };
 		1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */; };
 		141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107221E6122A1000E7C66 /* InformationTableViewCell.swift */; };
 		141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */; };
@@ -26,6 +34,7 @@
 		143EF2C31E5D2CB000544B8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143EF2C21E5D2CB000544B8B /* Images.xcassets */; };
 		143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2C41E5D2D3500544B8B /* RootViewController.swift */; };
 		143EF2C71E5D42D500544B8B /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2C61E5D42D500544B8B /* MyTableViewController.swift */; };
+		14479D141E640E7500A6B9E0 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14479D131E640E7500A6B9E0 /* NavigationController.swift */; };
 		147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147689A01E5EE54200BD192B /* OSCBanner.swift */; };
 		14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F0BA1E60303600D83779 /* OSCInformation.swift */; };
 		14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */; };
@@ -55,6 +64,15 @@
 		1404175E1E5E8310000CF459 /* BlogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		140417601E5E834E000CF459 /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		140417621E5E8368000CF459 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
+		140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzCanvasView.swift; sourceTree = "<group>"; };
+		140C67D01E65214A00B99E46 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		140C67D21E65215A00B99E46 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		140C67D51E6523AF00B99E46 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		140C67D71E653E0600B99E46 /* KYZG_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KYZG_swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		140C67DE1E653E6000B99E46 /* String+sha1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha1.swift"; sourceTree = "<group>"; };
+		140DE9961E63B4D10014176E /* MyTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableHeaderView.swift; sourceTree = "<group>"; };
+		140DE9991E63B6DC0014176E /* UserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		140DE99B1E63B7770014176E /* UserInfoButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoButtons.swift; sourceTree = "<group>"; };
 		1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewControllerModel.swift; sourceTree = "<group>"; };
 		141107221E6122A1000E7C66 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCellModel.swift; sourceTree = "<group>"; };
@@ -75,6 +93,7 @@
 		143EF2C21E5D2CB000544B8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		143EF2C41E5D2D3500544B8B /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		143EF2C61E5D42D500544B8B /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		14479D131E640E7500A6B9E0 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		147689A01E5EE54200BD192B /* OSCBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		14A6F0BA1E60303600D83779 /* OSCInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCInformation.swift; sourceTree = "<group>"; };
 		14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerScrollView.swift; sourceTree = "<group>"; };
@@ -113,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1404175A1E5E7146000CF459 /* UIColor+RGB.swift */,
+				140C67DE1E653E6000B99E46 /* String+sha1.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -129,11 +149,14 @@
 		140417661E5E83E7000CF459 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				140C67D41E65239200B99E46 /* setTing */,
+				140C67CF1E65213D00B99E46 /* login */,
+				140DE9951E63B4800014176E /* aboutMe */,
 				140417671E5EA6F1000CF459 /* comprehensiveViewController */,
 				1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */,
 				143EF2C41E5D2D3500544B8B /* RootViewController.swift */,
 				143EF2961E5D291500544B8B /* ComposeViewController.swift */,
-				143EF2C61E5D42D500544B8B /* MyTableViewController.swift */,
+				14479D131E640E7500A6B9E0 /* NavigationController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -147,6 +170,43 @@
 				140417621E5E8368000CF459 /* ActivityTableViewController.swift */,
 			);
 			name = comprehensiveViewController;
+			sourceTree = "<group>";
+		};
+		140C67CF1E65213D00B99E46 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				140C67D01E65214A00B99E46 /* LoginViewController.xib */,
+				140C67D21E65215A00B99E46 /* LoginViewController.swift */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		140C67D41E65239200B99E46 /* setTing */ = {
+			isa = PBXGroup;
+			children = (
+				140C67D51E6523AF00B99E46 /* SettingViewController.swift */,
+			);
+			name = setTing;
+			sourceTree = "<group>";
+		};
+		140DE9951E63B4800014176E /* aboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				140DE9981E63B4F60014176E /* MyTableHeaderView */,
+				143EF2C61E5D42D500544B8B /* MyTableViewController.swift */,
+			);
+			name = aboutMe;
+			sourceTree = "<group>";
+		};
+		140DE9981E63B4F60014176E /* MyTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				140DE9961E63B4D10014176E /* MyTableHeaderView.swift */,
+				140DE9991E63B6DC0014176E /* UserInfoView.swift */,
+				140DE99B1E63B7770014176E /* UserInfoButtons.swift */,
+				140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */,
+			);
+			name = MyTableHeaderView;
 			sourceTree = "<group>";
 		};
 		141107191E6113D1000E7C66 /* model */ = {
@@ -203,6 +263,7 @@
 				143EF29D1E5D291500544B8B /* LaunchScreen.storyboard */,
 				143EF2C21E5D2CB000544B8B /* Images.xcassets */,
 				143EF2A01E5D291500544B8B /* Info.plist */,
+				140C67D71E653E0600B99E46 /* KYZG_swift-Bridging-Header.h */,
 			);
 			path = KYZG_swift;
 			sourceTree = "<group>";
@@ -314,6 +375,7 @@
 					143EF2901E5D291500544B8B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = F8ML633GQS;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					143EF2A41E5D291500544B8B = {
@@ -353,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140C67D11E65214A00B99E46 /* LoginViewController.xib in Resources */,
 				143EF2C31E5D2CB000544B8B /* Images.xcassets in Resources */,
 				143EF29F1E5D291500544B8B /* LaunchScreen.storyboard in Resources */,
 				143EF29A1E5D291500544B8B /* Main.storyboard in Resources */,
@@ -431,20 +494,28 @@
 				14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */,
 				143EF2971E5D291500544B8B /* ComposeViewController.swift in Sources */,
 				141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */,
+				140C67D31E65215A00B99E46 /* LoginViewController.swift in Sources */,
 				147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */,
 				140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */,
 				1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */,
+				140DE99C1E63B7770014176E /* UserInfoButtons.swift in Sources */,
 				1404175B1E5E7146000CF459 /* UIColor+RGB.swift in Sources */,
 				1404175F1E5E8310000CF459 /* BlogTableViewController.swift in Sources */,
 				143EF2951E5D291500544B8B /* AppDelegate.swift in Sources */,
+				140C67D61E6523AF00B99E46 /* SettingViewController.swift in Sources */,
 				143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */,
 				1404175D1E5E82E5000CF459 /* InformationTableViewController.swift in Sources */,
 				140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */,
 				141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */,
+				140DE99A1E63B6DC0014176E /* UserInfoView.swift in Sources */,
+				140C67CE1E65079600B99E46 /* QuartzCanvasView.swift in Sources */,
 				14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */,
 				1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */,
 				1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */,
+				140DE9971E63B4D10014176E /* MyTableHeaderView.swift in Sources */,
+				14479D141E640E7500A6B9E0 /* NavigationController.swift in Sources */,
 				143EF2C71E5D42D500544B8B /* MyTableViewController.swift in Sources */,
+				140C67DF1E653E6000B99E46 /* String+sha1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,12 +669,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = F8ML633GQS;
 				INFOPLIST_FILE = KYZG_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -614,12 +688,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = F8ML633GQS;
 				INFOPLIST_FILE = KYZG_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

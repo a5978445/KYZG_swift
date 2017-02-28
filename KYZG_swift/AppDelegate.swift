@@ -13,7 +13,7 @@ let kScreenWidth = UIScreen.main.bounds.width
 let kScreenHeight = UIScreen.main.bounds.height
 
 let OSCAPI_V2_HTTPS_PREFIX = "https://www.oschina.net/action/apiv2/"
-
+let OSCAPI_ACCOUNT_LOGIN = "account_login" //登
 
 
 @UIApplicationMain
