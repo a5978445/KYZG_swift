@@ -12,6 +12,11 @@ struct MultistageTitle {
     var title:String
     var subTitle:String
     
+    init(title:String?,subTitle:String) {
+        self.title = title ?? "0"
+        self.subTitle = subTitle
+    }
+    
 }
 
 class UserInfoButtons: UIView {

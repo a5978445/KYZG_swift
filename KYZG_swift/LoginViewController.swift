@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
 
 class LoginViewController: UIViewController {
     
@@ -24,13 +25,52 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        // self.requestNewLoginAPI()
+        HUD.show(.label("正在登录"))
+        requestOldLoginAPI(finsh:{
+            HUD.hide()
+        })
+    }
+    
+    func requestOldLoginAPI(finsh:@escaping () -> ()) {
         
+        let parameters = ["username": "510491354@qq.com", "pwd": "qq1634","keep_login":"1"] as [String : Any] ;
+        //19e387f5ea910abf1e133bd88ddb645c1d814910
+        //19e387f5ea910abf1e133bd88ddb645c1d814910
+        Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + OSCAPI_ACCOUNT_LOGIN,
+                          method: HTTPMethod.post,
+                          parameters:parameters,
+                          encoding: URLEncoding.default,
+                          headers: nil)
+            .responseData{ dataResponse in
+                
+                if (dataResponse.value != nil) {
+                    let aJSON = JSON(data: dataResponse.data!)
+                    
+                    
+                    if aJSON["code"] == 1 {
+                        OSCUser.sharedInstance.userInfo = OSCUserInfo()
+                        OSCUser.sharedInstance.userInfo?.mj_setKeyValues(aJSON["obj_data"].rawValue)
+                        print(aJSON)
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        print(aJSON["message"])
+                    }
+                }
+                print(dataResponse)
+                finsh()
+        }
+        
+    }
+    
+    //新登陆接口无法使用
+    func requestNewLoginAPI() {
         let password = "qq1634"
         let data = password.data(using: String.Encoding.utf8)
         print(data?.digestHex())
         //19e387f5ea910abf1e133bd88ddb645c1d814910
         //19e387f5ea910abf1e133bd88ddb645c1d814910
-        Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + OSCAPI_ACCOUNT_LOGIN,
+        Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + NEW_OSCAPI_ACCOUNT_LOGIN,
                           method: HTTPMethod.post,
                           parameters: [ "account": "510491354@qq.com",
                                         "password":data?.digestHex()],
@@ -40,6 +80,7 @@ class LoginViewController: UIViewController {
                 if (response.value != nil) {
                     let aJSON = JSON(data: response.data!)
                     if aJSON["code"] == 1 {
+                      
                         
                     } else {
                         print(aJSON["message"])
@@ -48,72 +89,6 @@ class LoginViewController: UIViewController {
                 print(response)
         }
     }
-    
-   
-    /*
-     
-     {
-     [_userNameTextField resignFirstResponder];
-     [_passwordTextField resignFirstResponder];
-     
-     _loginButton.backgroundColor = [UIColor navigationbarColor];
-     
-     [Config saveOwnAccount:_userNameTextField.text];
-     
-     
-     AFHTTPRequestOperationManager* manger = [AFHTTPRequestOperationManager OSCJsonManager];
-     
-     NSLog(@"apptoken = %@", [Utils getAppToken]);
-     
-     [manger POST:[NSString stringWithFormat:@"%@%@", OSCAPI_V2_PREFIX, OSCAPI_ACCOUNT_LOGIN]
-     parameters:@{
-     @"account"   : _userNameTextField.text,
-     @"password"  : [Utils sha1:_passwordTextField.text],
-     }
-     success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-     
-     NSInteger code = [responseObject[@"code"] integerValue];
-     if (code == 1) {
-     NSDictionary *result = responseObject[@"result"];
-     OSCUserItem *user = [OSCUserItem osc_modelWithDictionary:result];
-     
-     [self saveUserInfo:user];
-     } else {
-     NSString *message = responseObject[@"message"];
-     switch (code) {
-     case 211:
-     {
-     //用户名错误
-     [Utils setButtonBorder:_userNameView isFail:YES isEditing:NO];
-     break;
-     }
-     case 212:
-     {
-     //密码错误
-     [Utils setButtonBorder:_passWordView isFail:YES isEditing:NO];
-     message = @"用户名或密码错误";
-     break;
-     }
-     default:
-     break;
-     }
-     
-     MBProgressHUD *HUD = [Utils createHUD];
-     HUD.mode = MBProgressHUDModeCustomView;
-     HUD.label.text = message;
-     
-     [HUD hideAnimated:YES afterDelay:2];
-     }
-     }
-     failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-     MBProgressHUD *HUD = [Utils createHUD];
-     HUD.mode = MBProgressHUDModeCustomView;
-     HUD.label.text = @"网络异常，操作失败";
-     
-     [HUD hideAnimated:YES afterDelay:2];
-     }];
-     }
-     */
     
     /*
      // MARK: - Navigation

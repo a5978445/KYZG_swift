@@ -17,13 +17,21 @@ class RootViewController: UITabBarController {
         
         configureItems()
         
-       let comprehensiveVC = (self.viewControllers![0] as! UINavigationController).topViewController as! ComposeViewController
+        let comprehensiveVC = (self.viewControllers![0] as! UINavigationController).topViewController as! ComposeViewController
         comprehensiveVC.titles = ["资讯","博客","问答","活动"]
         comprehensiveVC.addChildViewController(InformationTableViewController())
         comprehensiveVC.addChildViewController(BlogTableViewController())
         comprehensiveVC.addChildViewController(QuestionsTableViewController())
         comprehensiveVC.addChildViewController(ActivityTableViewController())
-      
+        
+        
+        let comprehensiveVC2 = (self.viewControllers![1] as! UINavigationController).topViewController as! ComposeViewController
+        comprehensiveVC2.titles = ["最新动弹","热门动弹","我的动弹"]
+        comprehensiveVC2.addChildViewController(TweetsViewController())
+        comprehensiveVC2.addChildViewController(TweetsViewController())
+        comprehensiveVC2.addChildViewController(TweetsViewController())
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

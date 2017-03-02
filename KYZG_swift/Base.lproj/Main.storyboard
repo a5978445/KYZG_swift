@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-423" y="633"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="Y4D-MH-vzS">
             <objects>
-                <viewController id="Q99-8m-YQr" sceneMemberID="viewController">
+                <viewController id="Q99-8m-YQr" customClass="ComposeViewController" customModule="KYZG_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aWm-sK-14r"/>
                         <viewControllerLayoutGuide type="bottom" id="2Hk-ee-gHa"/>

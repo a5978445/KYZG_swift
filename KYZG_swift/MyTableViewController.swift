@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import PKHUD
+import BXProgressHUD
 
 struct cellModel {
     var title:String?
     var imageName:String?
     var reponse:()->Void
+    
+   
     
     
     public init(title:String,imageName:String?,reponse:@escaping ()->Void) {
@@ -25,7 +29,7 @@ struct cellModel {
 class MyTableViewController: UITableViewController {
 
     var headerView:MyTableHeaderView?
-    
+
     let model = [cellModel(title:"我的消息",imageName:"ic_my_messege",reponse:{()->Void in }),
                  cellModel(title:"我的博客",imageName:"ic_my_blog",reponse:{()->Void in }),
                  cellModel(title:"我的活动",imageName:"ic_my_event",reponse:{()->Void in }),
@@ -39,21 +43,46 @@ class MyTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+     
         
         
         headerView = MyTableHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 280 + 64))
-        headerView?.showLogin = {[unowned self] ()->() in self.navigationController?.pushViewController(LoginViewController(), animated: true) }
-        headerView?.showSet = {[unowned self] ()->() in self.navigationController?.pushViewController(SettingViewController(), animated: true) }
+        
+        headerView?.showLogin = {[weak self]  in
+            self?.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
+        
+        headerView?.showSet = {[weak self]  in
+            self?.navigationController?.pushViewController(SettingViewController(), animated: true)
+        }
+        
+        headerView?.showQRCode = {[weak self] in
+            
+            let checkmarkView = UIImageView(image: Utils.createQRCodeFromString(string: (OSCUser.sharedInstance.userInfo?.id?.intValue.description)!))
+            let hud = BXProgressHUD.Builder(forView: (self?.view)!).mode(.customView).customView(checkmarkView).text("扫一扫上面的二维码，加我为好友")
+            let xx = hud.show() //.hide(afterDelay: 3)
+            xx.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MyTableViewController.hideHUD)))
+        
+            
+           
+        }
         
         
         tableView.tableHeaderView = headerView
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 44, 0)
     }
     
+    func hideHUD() {
+        BXProgressHUD.hideHUDForView(self.view)
+        print("test")
+        HUD.hide()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        
+        headerView?.userInfo = OSCUser.sharedInstance.userInfo;
     }
     
     override func viewWillDisappear(_ animated: Bool) {

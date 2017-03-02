@@ -23,8 +23,15 @@
 		1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */; };
 		141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107221E6122A1000E7C66 /* InformationTableViewCell.swift */; };
 		141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */; };
+		1413144C1E67AD8300983DCE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1413144B1E67AD8300983DCE /* Utils.swift */; };
+		141314501E67D08100983DCE /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1413144F1E67D08100983DCE /* UserInfoViewModel.swift */; };
+		141314531E67E93100983DCE /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141314521E67E93100983DCE /* TweetsViewController.swift */; };
 		1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */; };
 		1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417CE1D1E5D7F6200048DB7 /* NavButtons.swift */; };
+		1418B96C1E66A31E00ED1BCF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1418B9691E66A31E00ED1BCF /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1418B96D1E66A31E00ED1BCF /* ParsingXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1418B96B1E66A31E00ED1BCF /* ParsingXML.m */; };
+		1418B9711E66A6CF00ED1BCF /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1418B9701E66A6CF00ED1BCF /* libxml2.2.dylib */; };
+		1418B9731E66B1F500ED1BCF /* OSCUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1418B9721E66B1F500ED1BCF /* OSCUser.swift */; };
 		143EF2951E5D291500544B8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2941E5D291500544B8B /* AppDelegate.swift */; };
 		143EF2971E5D291500544B8B /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2961E5D291500544B8B /* ComposeViewController.swift */; };
 		143EF29A1E5D291500544B8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 143EF2981E5D291500544B8B /* Main.storyboard */; };
@@ -76,8 +83,17 @@
 		1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewControllerModel.swift; sourceTree = "<group>"; };
 		141107221E6122A1000E7C66 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCellModel.swift; sourceTree = "<group>"; };
+		1413144B1E67AD8300983DCE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1413144F1E67D08100983DCE /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		141314521E67E93100983DCE /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		1417CE1B1E5D6A2E00048DB7 /* FoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundTableViewController.swift; sourceTree = "<group>"; };
 		1417CE1D1E5D7F6200048DB7 /* NavButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavButtons.swift; sourceTree = "<group>"; };
+		1418B9681E66A31E00ED1BCF /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		1418B9691E66A31E00ED1BCF /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		1418B96A1E66A31E00ED1BCF /* ParsingXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingXML.h; sourceTree = "<group>"; };
+		1418B96B1E66A31E00ED1BCF /* ParsingXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingXML.m; sourceTree = "<group>"; };
+		1418B9701E66A6CF00ED1BCF /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		1418B9721E66B1F500ED1BCF /* OSCUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCUser.swift; sourceTree = "<group>"; };
 		143EF2911E5D291500544B8B /* KYZG_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYZG_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		143EF2941E5D291500544B8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		143EF2961E5D291500544B8B /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1418B9711E66A6CF00ED1BCF /* libxml2.2.dylib in Frameworks */,
 				27E8E155786F30F83A0393C6 /* Pods_KYZG_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1404175A1E5E7146000CF459 /* UIColor+RGB.swift */,
+				1413144B1E67AD8300983DCE /* Utils.swift */,
 				140C67DE1E653E6000B99E46 /* String+sha1.swift */,
 			);
 			name = extension;
@@ -149,7 +167,7 @@
 		140417661E5E83E7000CF459 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				140C67D41E65239200B99E46 /* setTing */,
+				141314511E67E8E900983DCE /* tweets */,
 				140C67CF1E65213D00B99E46 /* login */,
 				140DE9951E63B4800014176E /* aboutMe */,
 				140417671E5EA6F1000CF459 /* comprehensiveViewController */,
@@ -192,6 +210,7 @@
 		140DE9951E63B4800014176E /* aboutMe */ = {
 			isa = PBXGroup;
 			children = (
+				140C67D41E65239200B99E46 /* setTing */,
 				140DE9981E63B4F60014176E /* MyTableHeaderView */,
 				143EF2C61E5D42D500544B8B /* MyTableViewController.swift */,
 			);
@@ -203,6 +222,7 @@
 			children = (
 				140DE9961E63B4D10014176E /* MyTableHeaderView.swift */,
 				140DE9991E63B6DC0014176E /* UserInfoView.swift */,
+				1413144F1E67D08100983DCE /* UserInfoViewModel.swift */,
 				140DE99B1E63B7770014176E /* UserInfoButtons.swift */,
 				140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */,
 			);
@@ -214,6 +234,7 @@
 			children = (
 				14A6F0BA1E60303600D83779 /* OSCInformation.swift */,
 				147689A01E5EE54200BD192B /* OSCBanner.swift */,
+				1418B9721E66B1F500ED1BCF /* OSCUser.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -227,6 +248,25 @@
 				141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */,
 			);
 			name = InformationTableViewController;
+			sourceTree = "<group>";
+		};
+		141314511E67E8E900983DCE /* tweets */ = {
+			isa = PBXGroup;
+			children = (
+				141314521E67E93100983DCE /* TweetsViewController.swift */,
+			);
+			name = tweets;
+			sourceTree = "<group>";
+		};
+		1418B9671E66A30400ED1BCF /* ParsingXML */ = {
+			isa = PBXGroup;
+			children = (
+				1418B9681E66A31E00ED1BCF /* GDataXMLNode.h */,
+				1418B9691E66A31E00ED1BCF /* GDataXMLNode.m */,
+				1418B96A1E66A31E00ED1BCF /* ParsingXML.h */,
+				1418B96B1E66A31E00ED1BCF /* ParsingXML.m */,
+			);
+			name = ParsingXML;
 			sourceTree = "<group>";
 		};
 		143EF2881E5D291500544B8B = {
@@ -254,6 +294,7 @@
 		143EF2931E5D291500544B8B /* KYZG_swift */ = {
 			isa = PBXGroup;
 			children = (
+				1418B9671E66A30400ED1BCF /* ParsingXML */,
 				141107191E6113D1000E7C66 /* model */,
 				140417661E5E83E7000CF459 /* controller */,
 				140417651E5E83D0000CF459 /* view */,
@@ -289,6 +330,7 @@
 		1F9EEBE42D2CDD1395858D06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1418B9701E66A6CF00ED1BCF /* libxml2.2.dylib */,
 				67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */,
 			);
 			name = Frameworks;
@@ -499,17 +541,23 @@
 				140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */,
 				1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */,
 				140DE99C1E63B7770014176E /* UserInfoButtons.swift in Sources */,
+				1413144C1E67AD8300983DCE /* Utils.swift in Sources */,
 				1404175B1E5E7146000CF459 /* UIColor+RGB.swift in Sources */,
 				1404175F1E5E8310000CF459 /* BlogTableViewController.swift in Sources */,
 				143EF2951E5D291500544B8B /* AppDelegate.swift in Sources */,
 				140C67D61E6523AF00B99E46 /* SettingViewController.swift in Sources */,
 				143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */,
 				1404175D1E5E82E5000CF459 /* InformationTableViewController.swift in Sources */,
+				141314531E67E93100983DCE /* TweetsViewController.swift in Sources */,
 				140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */,
 				141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */,
+				141314501E67D08100983DCE /* UserInfoViewModel.swift in Sources */,
 				140DE99A1E63B6DC0014176E /* UserInfoView.swift in Sources */,
+				1418B96C1E66A31E00ED1BCF /* GDataXMLNode.m in Sources */,
 				140C67CE1E65079600B99E46 /* QuartzCanvasView.swift in Sources */,
 				14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */,
+				1418B9731E66B1F500ED1BCF /* OSCUser.swift in Sources */,
+				1418B96D1E66A31E00ED1BCF /* ParsingXML.m in Sources */,
 				1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */,
 				1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */,
 				140DE9971E63B4D10014176E /* MyTableHeaderView.swift in Sources */,
@@ -671,9 +719,29 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = F8ML633GQS;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = KYZG_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ${SDK_ROOT}/usr/include/libxml2";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"DateToolsSwift\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";
@@ -690,9 +758,29 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = F8ML633GQS;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = KYZG_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ${SDK_ROOT}/usr/include/libxml2";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"DateToolsSwift\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";

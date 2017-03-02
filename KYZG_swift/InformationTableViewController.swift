@@ -32,29 +32,38 @@ class InformationTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.green
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-          //  [weak self] in
-          //  self.reqeustNews()
-            self.model.refreshNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
+            [weak self] in
+        
+            self?.model.refreshNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
                 if error == nil {
-                    self.cellModels = models!
-                    self.tableView.reloadData()
+                    self?.cellModels = models!
+                    self?.tableView.reloadData()
                 } else { //to do待处理
                     print(error!)
                 }
-                self.tableView.mj_header.endRefreshing()
+                self?.tableView.mj_header.endRefreshing()
             })
+            
+            self?.model.requestImageInfo { (URLs:[String]?, error:NSError?) in
+                if error == nil {
+                    self?.imageScrollView.urls = URLs;
+                } else { //to do待处理
+                    print(error!)
+                }
+            }
         })
         
         
-        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { 
-            self.model.appendNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
+        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            [weak self] in
+            self?.model.appendNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
                 if error == nil {
-                    self.cellModels = models!
-                    self.tableView.reloadData()
+                    self?.cellModels = models!
+                    self?.tableView.reloadData()
                 } else { //to do待处理
                     print(error!)
                 }
-                self.tableView.mj_footer.endRefreshing()
+                self?.tableView.mj_footer.endRefreshing()
             })
         })
         
@@ -63,13 +72,7 @@ class InformationTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
       //  self.requestImageInfo()
-        model.requestImageInfo { (URLs:[String]?, error:NSError?) in
-            if error == nil {
-            self.imageScrollView.urls = URLs;
-            } else { //to do待处理
-                print(error!)
-            }
-        }
+     
         
         self.tableView.mj_header.beginRefreshing()
         

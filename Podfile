@@ -11,4 +11,6 @@ pod 'MJExtension', '~> 3.0.13'
 pod 'Kingfisher', '~> 3.5.0'
 pod 'DateToolsSwift', '~> 2.0.0'
 pod 'MJRefresh', '~> 3.1.12'
+pod 'PKHUD', '~> 4.0'
+pod 'BXProgressHUD', '~> 2.0'
 end

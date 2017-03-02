@@ -19,33 +19,35 @@ class MyTableHeaderView: UIView {
     */
     var userInfoView:UserInfoView
     var userInfoButton:UserInfoButtons
-    
-    
-    var showQRCode:(()->())? {
+    var userInfo:OSCUserInfo? {
         didSet {
-           userInfoView.showQRCode = showQRCode
+      
+            
+            userInfoButton.titles = [MultistageTitle(title: (userInfo?.score?.intValue.description),subTitle: "动弹"),
+                                     MultistageTitle(title:userInfo?.favorite_count?.intValue.description,subTitle: "收藏"),
+                                     MultistageTitle(title: userInfo?.fans?.intValue.description,subTitle: "关注"),
+                                     MultistageTitle(title: userInfo?.followers?.intValue.description,subTitle: "粉丝")]
+            
+            userInfoView.userinfo = userInfo
         }
     }
+    
+    
+    
+    var showQRCode:(()->())?
     var showSet:(()->())? {
         didSet {
             userInfoView.showSet = showSet
         }
     }
-    var showHeadImage:(()->())? {
-        didSet {
-            userInfoView.showHeadImage = showHeadImage
-        }
-    }
-    var showLogin:(()->())? {
-        didSet {
-            userInfoView.showHeadImage = showLogin
-        }
-    }
+    var showHeadImage:(()->())? 
+    var showLogin:(()->())?
     
     let userInfoButtonHeight:CGFloat = 64.0
     
     override init(frame: CGRect) {
         userInfoView = UserInfoView(frame: frame)
+       
         userInfoView.backgroundColor = UIColor.RGB(hex: 0x24CF5F) 
         
         userInfoButton = UserInfoButtons(frame: CGRect(x: 0, y: 0, width: frame.width, height: userInfoButtonHeight))
@@ -56,6 +58,31 @@ class MyTableHeaderView: UIView {
                                  MultistageTitle(title: "0",subTitle: "粉丝")]// 动弹，收藏，关注，粉丝
         
         super.init(frame: frame)
+        
+        userInfoView.showQRCode = {[weak self] in
+            if self?.userInfo?.id != nil {
+                if self?.showQRCode != nil {
+                    self?.showQRCode!()
+                }
+            } else {
+                if self?.showLogin != nil {
+                    self?.showLogin!()
+                }
+            }
+        }
+        
+        userInfoView.showHeadImage = {[weak self] in
+            if self?.userInfo?.id != nil {
+                if self?.showHeadImage != nil {
+                    self?.showHeadImage!()
+                }
+            } else {
+                if self?.showLogin != nil {
+                    self?.showLogin!()
+                }
+            }
+        }
+        
         self.addSubview(userInfoView)
         self.addSubview(userInfoButton)
         
