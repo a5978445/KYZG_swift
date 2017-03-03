@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HandyJSON
 
 class OSCUser: NSObject {
     
@@ -15,12 +16,12 @@ class OSCUser: NSObject {
     
     var userInfo:OSCUserInfo?
     
- 
+   
    // private override init() {} //This prevents others from using the default '()' initializer for this class.
     
 }
 
-class OSCUserInfo: NSObject {
+class OSCUserInfo: HandyJSON {
     var id:NSNumber?
     var devplatform:String?
     var jointime:String?
@@ -36,4 +37,6 @@ class OSCUserInfo: NSObject {
     var score:NSNumber?
     var gender:NSNumber?
     var name:String?
+    
+     required init() {}
 }

@@ -10,9 +10,9 @@ import UIKit
 
 class FoundTableViewController: UITableViewController {
     
-    let model = [[cellModel(title:"开源软件",imageName:"ic_discover_softwares",reponse:{()->Void in })],
-                 [cellModel(title:"找人",imageName:"ic_discover_find",reponse:{()->Void in })],
-                 [cellModel(title:"扫一扫",imageName:"ic_discover_scan",reponse:{()->Void in }),cellModel(title:"摇一摇",imageName:"ic_discover_shake",reponse:{()->Void in })]]
+    let model = [[CellModel(title:"开源软件",imageName:"ic_discover_softwares",reponse:{()->Void in })],
+                 [CellModel(title:"找人",imageName:"ic_discover_find",reponse:{()->Void in })],
+                 [CellModel(title:"扫一扫",imageName:"ic_discover_scan",reponse:{()->Void in }),CellModel(title:"摇一摇",imageName:"ic_discover_shake",reponse:{()->Void in })]]
     
     
    

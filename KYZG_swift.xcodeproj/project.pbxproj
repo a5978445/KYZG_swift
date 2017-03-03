@@ -41,11 +41,14 @@
 		143EF2C31E5D2CB000544B8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143EF2C21E5D2CB000544B8B /* Images.xcassets */; };
 		143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2C41E5D2D3500544B8B /* RootViewController.swift */; };
 		143EF2C71E5D42D500544B8B /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143EF2C61E5D42D500544B8B /* MyTableViewController.swift */; };
+		1445BF571E69398700E0826F /* InformationTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445BF561E69398700E0826F /* InformationTableViewDataSource.swift */; };
+		1445BF591E693C4D00E0826F /* MyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445BF581E693C4D00E0826F /* MyTableViewDataSource.swift */; };
 		14479D141E640E7500A6B9E0 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14479D131E640E7500A6B9E0 /* NavigationController.swift */; };
 		147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147689A01E5EE54200BD192B /* OSCBanner.swift */; };
 		14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F0BA1E60303600D83779 /* OSCInformation.swift */; };
 		14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */; };
 		27E8E155786F30F83A0393C6 /* Pods_KYZG_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */; };
+		A03A5CBB1FFCB1E132105F24 /* Pods_KYZG_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,12 +112,17 @@
 		143EF2C21E5D2CB000544B8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		143EF2C41E5D2D3500544B8B /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		143EF2C61E5D42D500544B8B /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		1445BF561E69398700E0826F /* InformationTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewDataSource.swift; sourceTree = "<group>"; };
+		1445BF581E693C4D00E0826F /* MyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDataSource.swift; sourceTree = "<group>"; };
 		14479D131E640E7500A6B9E0 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		147689A01E5EE54200BD192B /* OSCBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		14A6F0BA1E60303600D83779 /* OSCInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCInformation.swift; sourceTree = "<group>"; };
 		14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerScrollView.swift; sourceTree = "<group>"; };
 		67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C886BD42A09B275918030C6A /* Pods-KYZG_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift.debug.xcconfig"; sourceTree = "<group>"; };
+		E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF402EA77D3872FCC3E4B94C /* Pods-KYZG_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03A5CBB1FFCB1E132105F24 /* Pods_KYZG_swiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +222,7 @@
 				140C67D41E65239200B99E46 /* setTing */,
 				140DE9981E63B4F60014176E /* MyTableHeaderView */,
 				143EF2C61E5D42D500544B8B /* MyTableViewController.swift */,
+				1445BF581E693C4D00E0826F /* MyTableViewDataSource.swift */,
 			);
 			name = aboutMe;
 			sourceTree = "<group>";
@@ -243,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				1404175C1E5E82E5000CF459 /* InformationTableViewController.swift */,
+				1445BF561E69398700E0826F /* InformationTableViewDataSource.swift */,
 				1411071A1E611478000E7C66 /* InformationTableViewControllerModel.swift */,
 				141107221E6122A1000E7C66 /* InformationTableViewCell.swift */,
 				141107241E612ACF000E7C66 /* InformationTableViewCellModel.swift */,
@@ -332,6 +343,7 @@
 			children = (
 				1418B9701E66A6CF00ED1BCF /* libxml2.2.dylib */,
 				67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */,
+				E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -341,6 +353,8 @@
 			children = (
 				C886BD42A09B275918030C6A /* Pods-KYZG_swift.debug.xcconfig */,
 				EF402EA77D3872FCC3E4B94C /* Pods-KYZG_swift.release.xcconfig */,
+				C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */,
+				75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -372,9 +386,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 143EF2BC1E5D291500544B8B /* Build configuration list for PBXNativeTarget "KYZG_swiftTests" */;
 			buildPhases = (
+				9C88B165B33B050A6699B3B3 /* [CP] Check Pods Manifest.lock */,
 				143EF2A11E5D291500544B8B /* Sources */,
 				143EF2A21E5D291500544B8B /* Frameworks */,
 				143EF2A31E5D291500544B8B /* Resources */,
+				B51DE344F854D471F9446891 /* [CP] Embed Pods Frameworks */,
+				F22B552C5A3D919CF15DF1A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,6 +513,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9C88B165B33B050A6699B3B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B51DE344F854D471F9446891 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6F7E6CD25BA777E83383A2C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,6 +573,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F22B552C5A3D919CF15DF1A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -536,6 +598,8 @@
 				14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */,
 				143EF2971E5D291500544B8B /* ComposeViewController.swift in Sources */,
 				141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */,
+				1445BF591E693C4D00E0826F /* MyTableViewDataSource.swift in Sources */,
+				1445BF571E69398700E0826F /* InformationTableViewDataSource.swift in Sources */,
 				140C67D31E65215A00B99E46 /* LoginViewController.swift in Sources */,
 				147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */,
 				140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */,
@@ -790,9 +854,11 @@
 		};
 		143EF2BD1E5D291500544B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = KYZG_swiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swiftTests";
@@ -804,9 +870,11 @@
 		};
 		143EF2BE1E5D291500544B8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = KYZG_swiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swiftTests";

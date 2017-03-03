@@ -3,6 +3,7 @@ PODS:
   - BXProgressHUD (2.0):
     - PinAuto (~> 2.0)
   - DateToolsSwift (2.0.0)
+  - HandyJSON (1.6.0)
   - Kingfisher (3.5.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.3.0)
   - BXProgressHUD (~> 2.0)
   - DateToolsSwift (~> 2.0.0)
+  - HandyJSON (~> 1.6.0)
   - Kingfisher (~> 3.5.0)
   - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.1.12)
@@ -26,6 +28,7 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   BXProgressHUD: b206b6e09e90c49eb390a68cc6d427bddaf80e87
   DateToolsSwift: 27336736d877c8734159da1f37afbda2aa704649
+  HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
   Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -34,6 +37,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 6f4a5ad6a33407861fdce41266f0daa86649f283
+PODFILE CHECKSUM: d0f5144b423df1bb4a5d299dbea020f5bf0dc034
 
 COCOAPODS: 1.2.0

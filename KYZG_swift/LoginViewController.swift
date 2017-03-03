@@ -47,12 +47,28 @@ class LoginViewController: UIViewController {
                 if (dataResponse.value != nil) {
                     let aJSON = JSON(data: dataResponse.data!)
                     
+                  
                     
+                
                     if aJSON["code"] == 1 {
-                        OSCUser.sharedInstance.userInfo = OSCUserInfo()
-                        OSCUser.sharedInstance.userInfo?.mj_setKeyValues(aJSON["obj_data"].rawValue)
-                        print(aJSON)
-                        self.navigationController?.popViewController(animated: true)
+                        print(aJSON["obj_data"].string)
+                        let jsonString:String?
+                        do{  jsonString  = try String.init(data: aJSON["obj_data"].rawData(), encoding: String.Encoding.utf8)
+                            let test = OSCUserInfo.deserialize(from: jsonString)
+                            print(jsonString ?? "warn")
+                        }
+                        catch {
+                        
+                        }
+                        
+                        
+//                        OSCUser.sharedInstance.userInfo = OSCUserInfo.deserialize(from: jsonString)
+//                        let test = OSCUserInfo.deserialize(from: jsonString)
+//                        print(test?.toJSON()!)
+                        //                        OSCUser.sharedInstance.userInfo = OSCUserInfo()
+                        //                        OSCUser.sharedInstance.userInfo?.mj_setKeyValues(aJSON["obj_data"].rawValue)
+                        //                        print(aJSON)
+                        //                        self.navigationController?.popViewController(animated: true)
                     } else {
                         print(aJSON["message"])
                     }

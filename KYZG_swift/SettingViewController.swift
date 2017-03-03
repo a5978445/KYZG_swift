@@ -10,11 +10,11 @@ import UIKit
 
 class SettingViewController: UITableViewController {
 
-    let model = [cellModel(title:"清除缓存",imageName:nil,reponse:{()->Void in }),
-                 cellModel(title:"应用评分",imageName:nil,reponse:{()->Void in }),
-                 cellModel(title:"关于我们",imageName:nil,reponse:{()->Void in }),
-                 cellModel(title:"开源许可",imageName:nil,reponse:{()->Void in }),
-                 cellModel(title:"问题反馈",imageName:nil,reponse:{()->Void in })]
+    let model = [CellModel(title:"清除缓存",imageName:nil,reponse:{()->Void in }),
+                 CellModel(title:"应用评分",imageName:nil,reponse:{()->Void in }),
+                 CellModel(title:"关于我们",imageName:nil,reponse:{()->Void in }),
+                 CellModel(title:"开源许可",imageName:nil,reponse:{()->Void in }),
+                 CellModel(title:"问题反馈",imageName:nil,reponse:{()->Void in })]
     
     /*
      if ([UserInfo myUserInfo].user) {

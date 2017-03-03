@@ -16,8 +16,9 @@ class InformationTableViewController: UITableViewController {
     
     let imageScrollView = BannerScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 144))
     
-    var model = InformationTableViewControllerModel()
-    var cellModels = [InformationTableViewCellModel]()
+    let model = InformationTableViewControllerModel()
+   // var cellModels = [InformationTableViewCellModel]()
+    let dataSource = InformationTableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +32,17 @@ class InformationTableViewController: UITableViewController {
         self.tableView.tableHeaderView?.backgroundColor = UIColor.red
         self.tableView.backgroundColor = UIColor.green
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        //利用iOS8新特性计算cell的实际高度
+        self.tableView.estimatedRowHeight = 80
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.dataSource = dataSource
+        
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             [weak self] in
         
             self?.model.refreshNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
                 if error == nil {
-                    self?.cellModels = models!
+                    self?.dataSource.cellModels = models!
                     self?.tableView.reloadData()
                 } else { //to do待处理
                     print(error!)
@@ -58,7 +64,7 @@ class InformationTableViewController: UITableViewController {
             [weak self] in
             self?.model.appendNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
                 if error == nil {
-                    self?.cellModels = models!
+                    self?.dataSource.cellModels = models!
                     self?.tableView.reloadData()
                 } else { //to do待处理
                     print(error!)
@@ -67,11 +73,9 @@ class InformationTableViewController: UITableViewController {
             })
         })
         
-        //利用iOS8新特性计算cell的实际高度
-        self.tableView.estimatedRowHeight = 80
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
+     
         
-      //  self.requestImageInfo()
+   
      
         
         self.tableView.mj_header.beginRefreshing()
@@ -94,33 +98,7 @@ class InformationTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return cellModels.count
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:InformationTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as! InformationTableViewCell?
-        if cell == nil {
-            cell = InformationTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        }
-        
-       // cell?.textLabel?.text = "hello"
-        cell?.model = cellModels[indexPath.row]
-        return cell!
-    }
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100.0
-//    }
+
     
     
     /*

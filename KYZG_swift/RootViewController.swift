@@ -39,7 +39,31 @@ class RootViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    func configureItems() -> Void {
+    func configureItems()  {
+        
+        func addItems() {
+            let centerButton = UIButton(type: UIButtonType.custom)
+            
+            
+            let origin = view.convert(tabBar.center, to: tabBar)
+            let buttonSize = CGSize(width: view.frame.size.width/5, height: tabBar.frame.size.height - 4)
+            centerButton.frame = CGRect(origin: CGPoint(x:origin.x - buttonSize.width/2,y:origin.y - buttonSize.height/2), size: buttonSize)
+            
+            centerButton.setImage(UIImage(named:"ic_nav_add"), for: UIControlState.normal)
+            centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for: UIControlState.highlighted)
+            
+            
+            
+            
+            centerButton.addTarget(self,
+                                   action:#selector(RootViewController.handleTap),
+                                   for: UIControlEvents.touchUpInside)
+            
+            
+            tabBar.addSubview(centerButton)
+            
+        }
+        
         let titles = ["综合", "动弹", "", "发现", "我的"];
         let images = ["tabbar-news", "tabbar-tweet", "", "tabbar-discover", "tabbar-me"];
        
@@ -57,30 +81,9 @@ class RootViewController: UITabBarController {
         addItems()
     }
     
-    func addItems() -> Void {
-        let centerButton = UIButton(type: UIButtonType.custom)
-        
-        
-        let origin = view.convert(tabBar.center, to: tabBar)
-        let buttonSize = CGSize(width: view.frame.size.width/5, height: tabBar.frame.size.height - 4)
-        centerButton.frame = CGRect(origin: CGPoint(x:origin.x - buttonSize.width/2,y:origin.y - buttonSize.height/2), size: buttonSize)
-        
-        centerButton.setImage(UIImage(named:"ic_nav_add"), for: UIControlState.normal)
-        centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for: UIControlState.highlighted)
-        
-        
-        
-        
-        centerButton.addTarget(self,
-                               action:#selector(RootViewController.handleTap),
-                               for: UIControlEvents.touchUpInside)
-        
-        
-        tabBar.addSubview(centerButton)
-        
-    }
     
-    func handleTap() -> Void {
+    
+    func handleTap()  {
         selectedIndex = 2;
     }
     
