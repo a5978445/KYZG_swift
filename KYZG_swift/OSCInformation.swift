@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import HandyJSON
 
-public enum InformationType:Int {
+public enum InformationType:Int,HandyJSONEnum {
     case linkNews = 0//链接新闻
     case softWare//软件推荐
     case forum//讨论区帖子
@@ -18,28 +19,30 @@ public enum InformationType:Int {
     case info = 6//资讯
 }
 
-class OSCInformation: NSObject {
+class OSCInformation: HandyJSON {
 
     //因mjExtention 无法直接转成int 型，所以这里定义为NSNumber型
-    var id:NSNumber?
+    var id:Int?
     
     var title:String?
     
     var body:String?
     
-    var commentCount:NSNumber?
+    var commentCount:Int?
     
-    var viewCount:NSNumber?
+    var viewCount:Int?
     
     var author:String?
     
     var href:String?
     
-    var recommend:NSNumber?
+    var recommend:Int?
     
     var pubDate:String?
     
-    var infoType:InformationType?
+    var type:InformationType?
+    
+    required init() {}
     
   
 }

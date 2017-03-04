@@ -39,7 +39,7 @@ class UserInfoViewModel: NSObject {
             }
             
             
-            return "积分：" + (user?.score?.intValue.description)!
+            return "积分：" + (user?.score?.description)!
             
         }
     }

@@ -84,7 +84,14 @@ class RootViewController: UITabBarController {
     
     
     func handleTap()  {
+        
+        let temp = selectedIndex
         selectedIndex = 2;
+        
+        let VC = NavigationController(rootViewController: SendTweetsViewController())
+        present(VC, animated: true, completion: {
+            self.selectedIndex = temp
+        })
     }
     
     

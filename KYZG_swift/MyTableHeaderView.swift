@@ -23,10 +23,10 @@ class MyTableHeaderView: UIView {
         didSet {
       
             
-            userInfoButton.titles = [MultistageTitle(title: (userInfo?.score?.intValue.description),subTitle: "动弹"),
-                                     MultistageTitle(title:userInfo?.favorite_count?.intValue.description,subTitle: "收藏"),
-                                     MultistageTitle(title: userInfo?.fans?.intValue.description,subTitle: "关注"),
-                                     MultistageTitle(title: userInfo?.followers?.intValue.description,subTitle: "粉丝")]
+            userInfoButton.titles = [MultistageTitle(title: (userInfo?.score?.description),subTitle: "动弹"),
+                                     MultistageTitle(title:userInfo?.favorite_count?.description,subTitle: "收藏"),
+                                     MultistageTitle(title: userInfo?.fans?.description,subTitle: "关注"),
+                                     MultistageTitle(title: userInfo?.followers?.description,subTitle: "粉丝")]
             
             userInfoView.userinfo = userInfo
         }

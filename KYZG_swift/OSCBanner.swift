@@ -7,18 +7,18 @@
 //
 
 import UIKit
-import MJExtension
+import HandyJSON
 
-class OSCBanner: NSObject {
-
-    open var name:NSString?
-    open var detail:NSString?
-    open var img:NSString?
-    open var href:NSString?
-    open var type:NSString?
-    open var id:NSString?
-    open var time:NSString?
+class OSCBanner: HandyJSON {
     
-
+    open var name:String?
+    open var detail:String?
+    open var img:String?
+    open var href:String?
+    open var type:String?
+    open var id:String?
+    open var time:String?
+    
+    required init() {}
     
 }

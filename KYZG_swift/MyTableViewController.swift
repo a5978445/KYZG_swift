@@ -44,7 +44,7 @@ class MyTableViewController: UITableViewController {
             
             headerView?.showQRCode = {[weak self] in
                 
-                let checkmarkView = UIImageView(image: Utils.createQRCodeFromString(string: (OSCUser.sharedInstance.userInfo?.id?.intValue.description)!))
+                let checkmarkView = UIImageView(image: Utils.createQRCodeFromString(string: (OSCUser.sharedInstance.userInfo?.id?.description)!))
                 let hud = BXProgressHUD.Builder(forView: (self?.view)!).mode(.customView).customView(checkmarkView).text("扫一扫上面的二维码，加我为好友")
                 let xx = hud.show() //.hide(afterDelay: 3)
                 xx.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MyTableViewController.hideHUD)))
@@ -52,6 +52,25 @@ class MyTableViewController: UITableViewController {
                 
                 
             }
+            
+            headerView?.showHeadImage = { [weak self] in
+                let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertControllerStyle.actionSheet)
+                alertController.addAction(UIAlertAction(title: "更换头像", style: UIAlertActionStyle.default, handler: { action in
+                    
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "查看大头像", style: UIAlertActionStyle.default, handler: { action in
+                    
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { action in
+                    
+                }))
+                
+               // alertController.show(self!, sender: nil)
+                self?.present(alertController, animated: true, completion: nil)
+            }
+            
         }
         super.viewDidLoad()
         

@@ -56,7 +56,7 @@ class InformationTableViewCellModel: NSObject {
           //   attributedCommentCount = [Utils attributedCommentCount:_information.commentCount];
            
             
-            attributedCommentCount = NSAttributedString(string: "回复：" + String(information.commentCount!.intValue), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
+            attributedCommentCount = NSAttributedString(string: "回复：" + String(information.commentCount!), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
         }
         
         return attributedCommentCount!

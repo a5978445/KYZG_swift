@@ -112,14 +112,25 @@ class InformationTableViewControllerModel: NSObject {
         var resultModels = [InformationTableViewCellModel]()
         
         for aInformationJSON in infomationsJSON{
-            let aOSCInformation = OSCInformation()
-            aOSCInformation.mj_setKeyValues(aInformationJSON.rawValue)
             
-            //MJExtension 无法转换swfit枚举类型故在此手动转换一下
-            let dic = aInformationJSON.rawValue as! Dictionary<String, Any>
-            aOSCInformation.infoType = InformationType(rawValue: dic["type"] as! Int)
+            let data:Data
+            do { data = try aInformationJSON.rawData()
+                let aOSCInformation = OSCInformation.deserialize(from: data)
+                 resultModels.append(InformationTableViewCellModel(information: aOSCInformation!))
+                print("xxx")
+            } catch {
+                
+            }
             
-            resultModels.append(InformationTableViewCellModel(information: aOSCInformation))
+            
+//            let aOSCInformation = OSCInformation()
+//            aOSCInformation.mj_setKeyValues(aInformationJSON.rawValue)
+//            
+//            //MJExtension 无法转换swfit枚举类型故在此手动转换一下
+//            let dic = aInformationJSON.rawValue as! Dictionary<String, Any>
+//            aOSCInformation.infoType = InformationType(rawValue: dic["type"] as! Int)
+//            
+//            resultModels.append(InformationTableViewCellModel(information: aOSCInformation))
         }
         return resultModels;
     }
@@ -131,11 +142,20 @@ class InformationTableViewControllerModel: NSObject {
         //  let items = dic["result"]["items"]
         banners.removeAll()
         for aBanerDic in banersJSON{
-            let aBaner = OSCBanner()
-            // to do
-            aBaner.mj_setKeyValues(aBanerDic.rawValue)
             
-            banners.append(aBaner)
+            let data : Data
+            do { data = try aBanerDic.rawData()
+               banners.append( OSCBanner.deserialize(from:data)! )
+            }
+            catch {
+                
+            }
+//
+//            let aBaner = OSCBanner()
+//            // to do
+//            aBaner.mj_setKeyValues(aBanerDic.rawValue)
+//            
+//            banners.append(aBaner)
         }
         
     }
@@ -143,7 +163,7 @@ class InformationTableViewControllerModel: NSObject {
     func imageURLs()->[String] {
         var imageURLs = [String]()
         for aBaner in banners{
-            imageURLs.append(aBaner.img as! String)
+            imageURLs.append(aBaner.img!)
         }
         return imageURLs;
     }

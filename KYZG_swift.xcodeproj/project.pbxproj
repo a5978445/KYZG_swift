@@ -44,6 +44,9 @@
 		1445BF571E69398700E0826F /* InformationTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445BF561E69398700E0826F /* InformationTableViewDataSource.swift */; };
 		1445BF591E693C4D00E0826F /* MyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445BF581E693C4D00E0826F /* MyTableViewDataSource.swift */; };
 		14479D141E640E7500A6B9E0 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14479D131E640E7500A6B9E0 /* NavigationController.swift */; };
+		145A88761E6A916900F39DE3 /* SendTweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A88751E6A916900F39DE3 /* SendTweetsViewController.swift */; };
+		145A88781E6A961700F39DE3 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A88771E6A961700F39DE3 /* PlaceholderTextView.swift */; };
+		145A887A1E6AAEB900F39DE3 /* HandyJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A88791E6AAEB900F39DE3 /* HandyJSONExtension.swift */; };
 		147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147689A01E5EE54200BD192B /* OSCBanner.swift */; };
 		14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F0BA1E60303600D83779 /* OSCInformation.swift */; };
 		14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */; };
@@ -115,6 +118,9 @@
 		1445BF561E69398700E0826F /* InformationTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewDataSource.swift; sourceTree = "<group>"; };
 		1445BF581E693C4D00E0826F /* MyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDataSource.swift; sourceTree = "<group>"; };
 		14479D131E640E7500A6B9E0 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		145A88751E6A916900F39DE3 /* SendTweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTweetsViewController.swift; sourceTree = "<group>"; };
+		145A88771E6A961700F39DE3 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		145A88791E6AAEB900F39DE3 /* HandyJSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyJSONExtension.swift; sourceTree = "<group>"; };
 		147689A01E5EE54200BD192B /* OSCBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		14A6F0BA1E60303600D83779 /* OSCInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCInformation.swift; sourceTree = "<group>"; };
 		14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerScrollView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				1404175A1E5E7146000CF459 /* UIColor+RGB.swift */,
 				1413144B1E67AD8300983DCE /* Utils.swift */,
 				140C67DE1E653E6000B99E46 /* String+sha1.swift */,
+				145A88791E6AAEB900F39DE3 /* HandyJSONExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 			children = (
 				1417CE1D1E5D7F6200048DB7 /* NavButtons.swift */,
 				14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */,
+				145A88771E6A961700F39DE3 /* PlaceholderTextView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				141314521E67E93100983DCE /* TweetsViewController.swift */,
+				145A88751E6A916900F39DE3 /* SendTweetsViewController.swift */,
 			);
 			name = tweets;
 			sourceTree = "<group>";
@@ -623,11 +632,14 @@
 				1418B9731E66B1F500ED1BCF /* OSCUser.swift in Sources */,
 				1418B96D1E66A31E00ED1BCF /* ParsingXML.m in Sources */,
 				1417CE1E1E5D7F6200048DB7 /* NavButtons.swift in Sources */,
+				145A88761E6A916900F39DE3 /* SendTweetsViewController.swift in Sources */,
 				1417CE1C1E5D6A2E00048DB7 /* FoundTableViewController.swift in Sources */,
 				140DE9971E63B4D10014176E /* MyTableHeaderView.swift in Sources */,
 				14479D141E640E7500A6B9E0 /* NavigationController.swift in Sources */,
 				143EF2C71E5D42D500544B8B /* MyTableViewController.swift in Sources */,
 				140C67DF1E653E6000B99E46 /* String+sha1.swift in Sources */,
+				145A887A1E6AAEB900F39DE3 /* HandyJSONExtension.swift in Sources */,
+				145A88781E6A961700F39DE3 /* PlaceholderTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

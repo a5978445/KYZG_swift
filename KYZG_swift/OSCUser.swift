@@ -16,27 +16,30 @@ class OSCUser: NSObject {
     
     var userInfo:OSCUserInfo?
     
-   
-   // private override init() {} //This prevents others from using the default '()' initializer for this class.
+    
+ 
+    
+    // private override init() {} //This prevents others from using the default '()' initializer for this class.
     
 }
 
 class OSCUserInfo: HandyJSON {
-    var id:NSNumber?
+    var id:Int?
     var devplatform:String?
     var jointime:String?
-    var favorite_count:NSNumber?
+    var favorite_count:Int?
     var expertise:String?
     var from:String?
     var portrait:String?
     
     var latestonline:String?
-    var fans:NSNumber?
-    var followers:NSNumber?
+    var fans:Int?
+    var followers:Int?
     
-    var score:NSNumber?
-    var gender:NSNumber?
+    var score:Int?
+    var gender:Int?
     var name:String?
     
-     required init() {}
+    required init() {}
+    
 }
