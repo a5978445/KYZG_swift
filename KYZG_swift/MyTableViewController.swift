@@ -32,6 +32,52 @@ class MyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         func configureTableHeadView() {
+            
+            func showPhotoSlectAlertView() {
+                
+                func showCameraCtrl() {
+                    
+                    let p = UIImagePickerController()
+                    p.sourceType = UIImagePickerControllerSourceType.camera;
+                    p.allowsEditing = true;
+                    p.delegate = self;
+                    self.present(p, animated: true, completion: nil)
+                    
+                }
+                
+                func showPhotoSelectCtrl() {
+                    
+                    let p = UIImagePickerController()
+                    p.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+                    p.allowsEditing = true;
+                    p.delegate = self;
+                    self.present(p, animated: true, completion: nil)
+                    
+                }
+                
+                
+                let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertControllerStyle.actionSheet)
+                
+                
+                alertController.addAction(UIAlertAction(title: "相机", style: UIAlertActionStyle.default, handler: { action in
+                    showCameraCtrl()
+                }))
+                
+                
+                alertController.addAction(UIAlertAction(title: "相册", style: UIAlertActionStyle.default, handler: { action in
+                    
+                    showPhotoSelectCtrl()
+                }))
+                
+                
+                alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { action in
+                    
+                }))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+            
             headerView = MyTableHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 280 + 64))
             
             headerView?.showLogin = {[weak self]  in
@@ -56,7 +102,7 @@ class MyTableViewController: UITableViewController {
             headerView?.showHeadImage = { [weak self] in
                 let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertControllerStyle.actionSheet)
                 alertController.addAction(UIAlertAction(title: "更换头像", style: UIAlertActionStyle.default, handler: { action in
-                    
+                    showPhotoSlectAlertView()
                 }))
                 
                 alertController.addAction(UIAlertAction(title: "查看大头像", style: UIAlertActionStyle.default, handler: { action in
@@ -72,6 +118,8 @@ class MyTableViewController: UITableViewController {
             }
             
         }
+        
+        
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
@@ -90,8 +138,7 @@ class MyTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 44, 0)
     }
     
-    
-    
+ 
     
     func hideHUD() {
         BXProgressHUD.hideHUDForView(self.view)
@@ -119,5 +166,20 @@ class MyTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     
+    
+}
+
+extension MyTableViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+   
+    //MARK - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+    let image = info["UIImagePickerControllerEditedImage"] as! UIImage;
+    
+ 
+    picker.dismiss(animated: true, completion: nil)
+    //NSData *data = UIImageJPEGRepresentation(image, 0.7f);
+   // [self updatePortraitWithData:data];
+    }
     
 }

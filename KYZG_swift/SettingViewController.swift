@@ -10,11 +10,11 @@ import UIKit
 
 class SettingViewController: UITableViewController {
 
-    let model = [CellModel(title:"清除缓存",imageName:nil,reponse:{()->Void in }),
-                 CellModel(title:"应用评分",imageName:nil,reponse:{()->Void in }),
+    var model = [[CellModel(title:"清除缓存",imageName:nil,reponse:{()->Void in })],
+                 [CellModel(title:"应用评分",imageName:nil,reponse:{()->Void in }),
                  CellModel(title:"关于我们",imageName:nil,reponse:{()->Void in }),
                  CellModel(title:"开源许可",imageName:nil,reponse:{()->Void in }),
-                 CellModel(title:"问题反馈",imageName:nil,reponse:{()->Void in })]
+                 CellModel(title:"问题反馈",imageName:nil,reponse:{()->Void in })]]
     
     /*
      if ([UserInfo myUserInfo].user) {
@@ -31,6 +31,9 @@ class SettingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if OSCUser.sharedInstance.userInfo != nil {
+            model.append([CellModel(title:"注销登录",imageName:nil,reponse:{()->Void in })])
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -40,14 +43,18 @@ class SettingViewController: UITableViewController {
     }
     
 
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return model.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return model.count
+        return model[section].count
     }
     
     
@@ -56,7 +63,7 @@ class SettingViewController: UITableViewController {
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         }
-        cell?.textLabel?.text = model[indexPath.row].title;
+        cell?.textLabel?.text = model[indexPath.section][indexPath.row].title;
        
         //tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         

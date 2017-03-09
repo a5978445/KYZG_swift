@@ -27,9 +27,22 @@ class RootViewController: UITabBarController {
         
         let comprehensiveVC2 = (self.viewControllers![1] as! UINavigationController).topViewController as! ComposeViewController
         comprehensiveVC2.titles = ["最新动弹","热门动弹","我的动弹"]
-        comprehensiveVC2.addChildViewController(TweetsViewController())
-        comprehensiveVC2.addChildViewController(TweetsViewController())
-        comprehensiveVC2.addChildViewController(TweetsViewController())
+        
+        let TweetsViewController_1 = TweetsViewController()
+        TweetsViewController_1.tweetType = .newTweet
+        TweetsViewController_1.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        
+        let TweetsViewController_2 = TweetsViewController()
+        TweetsViewController_2.tweetType = .hotTweet
+        TweetsViewController_2.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        
+        let TweetsViewController_3 = TweetsViewController()
+        TweetsViewController_3.tweetType = .myTweet
+        TweetsViewController_3.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        
+        comprehensiveVC2.addChildViewController(TweetsViewController_1)
+        comprehensiveVC2.addChildViewController(TweetsViewController_2)
+        comprehensiveVC2.addChildViewController(TweetsViewController_3)
         
         
     }

@@ -12,6 +12,9 @@
 		1404175F1E5E8310000CF459 /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404175E1E5E8310000CF459 /* BlogTableViewController.swift */; };
 		140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417601E5E834E000CF459 /* QuestionsTableViewController.swift */; };
 		140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140417621E5E8368000CF459 /* ActivityTableViewController.swift */; };
+		140C171D1E6D37FF00627DD9 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C171C1E6D37FF00627DD9 /* TweetModel.swift */; };
+		140C171F1E6D3B7C00627DD9 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C171E1E6D3B7C00627DD9 /* TweetTableViewCell.swift */; };
+		140C17231E6D3D6D00627DD9 /* TweetsViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C17221E6D3D6D00627DD9 /* TweetsViewControllerModel.swift */; };
 		140C67CE1E65079600B99E46 /* QuartzCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */; };
 		140C67D11E65214A00B99E46 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140C67D01E65214A00B99E46 /* LoginViewController.xib */; };
 		140C67D31E65215A00B99E46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C67D21E65215A00B99E46 /* LoginViewController.swift */; };
@@ -48,6 +51,7 @@
 		145A88781E6A961700F39DE3 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A88771E6A961700F39DE3 /* PlaceholderTextView.swift */; };
 		145A887A1E6AAEB900F39DE3 /* HandyJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A88791E6AAEB900F39DE3 /* HandyJSONExtension.swift */; };
 		147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147689A01E5EE54200BD192B /* OSCBanner.swift */; };
+		149E47A91E6FA0740087C0E0 /* TweetsViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E47A81E6FA0740087C0E0 /* TweetsViewControllerDataSource.swift */; };
 		14A6F0BB1E60303600D83779 /* OSCInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F0BA1E60303600D83779 /* OSCInformation.swift */; };
 		14C01A181E5FF4AC00D64C19 /* BannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */; };
 		27E8E155786F30F83A0393C6 /* Pods_KYZG_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */; };
@@ -77,6 +81,9 @@
 		1404175E1E5E8310000CF459 /* BlogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		140417601E5E834E000CF459 /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		140417621E5E8368000CF459 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
+		140C171C1E6D37FF00627DD9 /* TweetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
+		140C171E1E6D3B7C00627DD9 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		140C17221E6D3D6D00627DD9 /* TweetsViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewControllerModel.swift; sourceTree = "<group>"; };
 		140C67CD1E65079600B99E46 /* QuartzCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzCanvasView.swift; sourceTree = "<group>"; };
 		140C67D01E65214A00B99E46 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		140C67D21E65215A00B99E46 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +129,7 @@
 		145A88771E6A961700F39DE3 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		145A88791E6AAEB900F39DE3 /* HandyJSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyJSONExtension.swift; sourceTree = "<group>"; };
 		147689A01E5EE54200BD192B /* OSCBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
+		149E47A81E6FA0740087C0E0 /* TweetsViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewControllerDataSource.swift; sourceTree = "<group>"; };
 		14A6F0BA1E60303600D83779 /* OSCInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSCInformation.swift; sourceTree = "<group>"; };
 		14C01A171E5FF4AC00D64C19 /* BannerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerScrollView.swift; sourceTree = "<group>"; };
 		67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +215,18 @@
 			name = comprehensiveViewController;
 			sourceTree = "<group>";
 		};
+		140C17201E6D3D4300627DD9 /* TweetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				141314521E67E93100983DCE /* TweetsViewController.swift */,
+				149E47A81E6FA0740087C0E0 /* TweetsViewControllerDataSource.swift */,
+				140C17221E6D3D6D00627DD9 /* TweetsViewControllerModel.swift */,
+				140C171C1E6D37FF00627DD9 /* TweetModel.swift */,
+				140C171E1E6D3B7C00627DD9 /* TweetTableViewCell.swift */,
+			);
+			name = TweetsViewController;
+			sourceTree = "<group>";
+		};
 		140C67CF1E65213D00B99E46 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +292,7 @@
 		141314511E67E8E900983DCE /* tweets */ = {
 			isa = PBXGroup;
 			children = (
-				141314521E67E93100983DCE /* TweetsViewController.swift */,
+				140C17201E6D3D4300627DD9 /* TweetsViewController */,
 				145A88751E6A916900F39DE3 /* SendTweetsViewController.swift */,
 			);
 			name = tweets;
@@ -609,10 +629,13 @@
 				141107231E6122A1000E7C66 /* InformationTableViewCell.swift in Sources */,
 				1445BF591E693C4D00E0826F /* MyTableViewDataSource.swift in Sources */,
 				1445BF571E69398700E0826F /* InformationTableViewDataSource.swift in Sources */,
+				140C171F1E6D3B7C00627DD9 /* TweetTableViewCell.swift in Sources */,
+				140C17231E6D3D6D00627DD9 /* TweetsViewControllerModel.swift in Sources */,
 				140C67D31E65215A00B99E46 /* LoginViewController.swift in Sources */,
 				147689A11E5EE54200BD192B /* OSCBanner.swift in Sources */,
 				140417611E5E834E000CF459 /* QuestionsTableViewController.swift in Sources */,
 				1411071B1E611478000E7C66 /* InformationTableViewControllerModel.swift in Sources */,
+				140C171D1E6D37FF00627DD9 /* TweetModel.swift in Sources */,
 				140DE99C1E63B7770014176E /* UserInfoButtons.swift in Sources */,
 				1413144C1E67AD8300983DCE /* Utils.swift in Sources */,
 				1404175B1E5E7146000CF459 /* UIColor+RGB.swift in Sources */,
@@ -622,6 +645,7 @@
 				143EF2C51E5D2D3500544B8B /* RootViewController.swift in Sources */,
 				1404175D1E5E82E5000CF459 /* InformationTableViewController.swift in Sources */,
 				141314531E67E93100983DCE /* TweetsViewController.swift in Sources */,
+				149E47A91E6FA0740087C0E0 /* TweetsViewControllerDataSource.swift in Sources */,
 				140417631E5E8368000CF459 /* ActivityTableViewController.swift in Sources */,
 				141107251E612ACF000E7C66 /* InformationTableViewCellModel.swift in Sources */,
 				141314501E67D08100983DCE /* UserInfoViewModel.swift in Sources */,

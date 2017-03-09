@@ -9,54 +9,91 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MJRefresh
 
-class TweetsViewController: UIViewController {
+
+
+public enum TweetType : Int {
+    case newTweet = 1
+    case hotTweet = 2
+    case myTweet = 3
+}
+
+class TweetsViewController: UITableViewController {
+    
+    let model = TweetsViewControllerModel()
+    let dataSource = TweetsViewControllerDataSource()
+    var tweetType: TweetType = TweetType.newTweet {
+        didSet {
+            model.tweetType = tweetType
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        self.requestImageInfo(complete:{ (test:[String]?, error:NSError?) in
+        self.tableView.estimatedRowHeight = 80
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.dataSource = dataSource
+        
+        
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock:{ [weak self] in
+            self?.model.requestNewTweets {[weak self] (models:[TweetModel]?, error:NSError?) in
+                guard self != nil else {
+                    return
+                }
+                if error == nil {
+                    self?.dataSource.models = models!;
+                    self?.tableView.reloadData()
+                } else {
+                    print(error)
+                }
+                self?.tableView.mj_header.endRefreshing()
+            }
+            
             
         })
+        
+        
+        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            [weak self] in
+            self?.model.addTweets { [weak self] (models:[TweetModel]?, error:NSError?) in
+                guard self != nil else {
+                    return
+                }
+                if error == nil {
+                    if models != nil {
+                        self?.dataSource.models = models!;
+                        self?.tableView.reloadData()
+                        self?.tableView.mj_footer.endRefreshing()
+                    } else {
+                        self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    }
+                } else {
+                    print(error)
+                    self?.tableView.mj_footer.endRefreshing()
+                }
+                
+                
+            }
+            
+            
+        })
+        
+        self.tableView.mj_header.beginRefreshing()
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 120
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    open func requestImageInfo(complete:@escaping ([String]?,NSError?)->Void) ->Void{
-        Alamofire.request(rootAddress + tweetList, method: HTTPMethod.get, parameters: nil, encoding:URLEncoding.default , headers: nil).responseJSON { response in
-            
-            
-            if response.result.value != nil {
-                
-                
-                
-                let dic = JSON(data: response.data!)
-                print(dic)
-                if dic["code"] == 1 {
-                    
-         
-                    print("sucess")
-                  
-                    
-                } else { //处理错误信息
-                    print(dic)
-                    complete(nil,NSError(domain: "未知原因", code: 0, userInfo: nil));
-                }
-                
-                
-            } else {
-                //    let error = response.error as! NSError
-                complete(nil,response.error as! NSError)
-                // throw response.error
-                
-            }
-        }
-        
-    }
+    
 
     /*
     // MARK: - Navigation
