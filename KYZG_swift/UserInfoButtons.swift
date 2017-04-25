@@ -34,8 +34,8 @@ class UserInfoButtons: UIView {
             
             buttons.removeAll()
             
-            let buttonWidth = frame.size.width / (CGFloat)(titles!.count)
-            let buttonHeight = frame.size.height;
+            let buttonWidth = frame.width / (CGFloat)(titles!.count)
+            let buttonHeight = frame.height;
             for (index,aMultistageTitle) in titles!.enumerated() {
                 
                 

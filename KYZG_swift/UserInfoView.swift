@@ -169,7 +169,7 @@ class UserInfoView: UIView {
     
   
     
-    func addLayouts() -> Void {
+    func addLayouts()  {
         
         setButton.snp.makeConstraints { make in
             make.left.equalTo(16)
@@ -219,7 +219,7 @@ class UserInfoView: UIView {
     
     //MARK:-tapGestureRecognizer
     //   #pragma mark tapGestureRecognizer
-    func clickImage(gestureRecognizer:UITapGestureRecognizer) -> Void {
+    func clickImage(gestureRecognizer:UITapGestureRecognizer)  {
         
         print("clcikImage")
         if showHeadImage != nil {
@@ -229,7 +229,7 @@ class UserInfoView: UIView {
        
     }
     
-    func setAction(button:UIButton) -> Void {
+    func setAction(button:UIButton)  {
          print("setAction")
 
         if showSet != nil {
@@ -237,7 +237,7 @@ class UserInfoView: UIView {
         }
     }
     
-    func codeAction(button:UIButton) -> Void {
+    func codeAction(button:UIButton) {
          print("codeAction")
         if showQRCode != nil {
             showQRCode!()

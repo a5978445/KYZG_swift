@@ -11,69 +11,69 @@ import UIKit
 class PlaceholderTextView: UITextView {
     var placeholder:String? {
         didSet {
-            _placeholderView.text = placeholder
+            placeholderView.text = placeholder
         }
     }
     let kTextKey = "text"
-    let _placeholderView = UITextView()
+    let placeholderView = UITextView()
     
     override var font: UIFont? {
         didSet {
-            _placeholderView.font = font;
+            placeholderView.font = font;
         }
     }
     
     override var textAlignment: NSTextAlignment {
         didSet {
-            _placeholderView.textAlignment = textAlignment;
+            placeholderView.textAlignment = textAlignment;
         }
     }
     
     override var contentInset: UIEdgeInsets {
         didSet {
-            _placeholderView.contentInset = contentInset
+            placeholderView.contentInset = contentInset
         }
     }
     
     override var contentOffset: CGPoint {
         didSet {
-            _placeholderView.contentOffset = contentOffset
+            placeholderView.contentOffset = contentOffset
         }
     }
     
     override var textContainerInset: UIEdgeInsets {
         didSet {
-            _placeholderView.textContainerInset = textContainerInset
+            placeholderView.textContainerInset = textContainerInset
         }
     }
     
     func setUpPlaceholderView() {
         
         
-        _placeholderView.isEditable = false;
-        _placeholderView.isScrollEnabled = false;
-        _placeholderView.showsHorizontalScrollIndicator = false;
-        _placeholderView.showsVerticalScrollIndicator = false;
-        _placeholderView.isUserInteractionEnabled = false;
-        _placeholderView.font = self.font;
-        _placeholderView.contentInset = self.contentInset;
-        _placeholderView.contentOffset = self.contentOffset;
-        _placeholderView.textContainerInset = self.textContainerInset;
-        _placeholderView.textColor = UIColor.RGB(hex: 0xc8c8ce)
-        _placeholderView.backgroundColor = UIColor.clear
-        self.addSubview(_placeholderView)
+        placeholderView.isEditable = false;
+        placeholderView.isScrollEnabled = false;
+        placeholderView.showsHorizontalScrollIndicator = false;
+        placeholderView.showsVerticalScrollIndicator = false;
+        placeholderView.isUserInteractionEnabled = false;
+        placeholderView.font = font;
+        placeholderView.contentInset = contentInset;
+        placeholderView.contentOffset = contentOffset;
+        placeholderView.textContainerInset = textContainerInset;
+        placeholderView.textColor = UIColor.RGB(hex: 0xc8c8ce)
+        placeholderView.backgroundColor = UIColor.clear
+        addSubview(placeholderView)
 
         
         NotificationCenter.default.addObserver(self, selector: #selector(PlaceholderTextView.textDidChange(notification:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
      
-        self.addObserver(self, forKeyPath: kTextKey, options: NSKeyValueObservingOptions.new, context: nil)
+        addObserver(self, forKeyPath: kTextKey, options: .new, context: nil)
         
         
     }
     
     func textDidChange(notification:NSNotification) {
         
-        _placeholderView.isHidden = self.hasText
+        placeholderView.isHidden = hasText
         
     }
     
@@ -91,17 +91,17 @@ class PlaceholderTextView: UITextView {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if (keyPath == kTextKey) {
-            _placeholderView.isHidden = self.hasText
+            placeholderView.isHidden = hasText
         }
     }
     
     override func layoutSubviews() {
          super.layoutSubviews()
-        _placeholderView.frame = self.bounds
+        placeholderView.frame = bounds
     }
     
     deinit {
-        self.removeObserver(self, forKeyPath: kTextKey)
+        removeObserver(self, forKeyPath: kTextKey)
         NotificationCenter.default.removeObserver(self)
    
     }

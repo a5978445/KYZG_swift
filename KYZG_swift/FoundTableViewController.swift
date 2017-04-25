@@ -18,7 +18,7 @@ class FoundTableViewController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.green
+        view.backgroundColor = UIColor.green
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -48,9 +48,9 @@ class FoundTableViewController: UITableViewController {
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
-        cell?.textLabel?.text = model[indexPath.section][indexPath.row].title;
+        cell?.textLabel?.text = model[indexPath.section][indexPath.row].title
         cell?.imageView?.image = UIImage(named:model[indexPath.section][indexPath.row].imageName!);
         //tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         

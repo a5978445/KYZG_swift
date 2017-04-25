@@ -17,10 +17,10 @@ class InformationTableViewCell: UITableViewCell {
     
     var model:InformationTableViewCellModel? {
         didSet {
-            commentCount.attributedText = model?.getAttributedCommentCount();
-            titleLabel.attributedText = model?.getAttributedTittle();
-            timeLabel.attributedText = model?.getTimeString();
-            bodyLabel.attributedText = model?.getBodyString();
+            commentCount.attributedText = model?.attributedCommentCount;
+            titleLabel.attributedText = model?.attributedTittle;
+            timeLabel.attributedText = model?.timeString;
+            bodyLabel.attributedText = model?.bodyString;
         }
     }
     

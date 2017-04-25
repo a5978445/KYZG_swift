@@ -55,22 +55,27 @@ class RootViewController: UITabBarController {
     func configureItems()  {
         
         func addItems() {
-            let centerButton = UIButton(type: UIButtonType.custom)
             
+            func ceterButtonframe() -> CGRect {
+                let origin = view.convert(tabBar.center, to: tabBar)
+                let buttonSize = CGSize(width: view.frame.width / 5, height: tabBar.frame.height - 4)
+                return CGRect(origin: CGPoint(x:origin.x - buttonSize.width / 2,y:origin.y - buttonSize.height / 2), size: buttonSize)
+            }
             
-            let origin = view.convert(tabBar.center, to: tabBar)
-            let buttonSize = CGSize(width: view.frame.size.width/5, height: tabBar.frame.size.height - 4)
-            centerButton.frame = CGRect(origin: CGPoint(x:origin.x - buttonSize.width/2,y:origin.y - buttonSize.height/2), size: buttonSize)
+            let centerButton = UIButton(type: .custom)
             
-            centerButton.setImage(UIImage(named:"ic_nav_add"), for: UIControlState.normal)
-            centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for: UIControlState.highlighted)
+          
+            centerButton.frame = ceterButtonframe()
+            
+            centerButton.setImage(UIImage(named:"ic_nav_add"), for: .normal)
+            centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for:.highlighted)
             
             
             
             
             centerButton.addTarget(self,
-                                   action:#selector(RootViewController.handleTap),
-                                   for: UIControlEvents.touchUpInside)
+                                action:#selector(RootViewController.handleTap),
+                                   for: .touchUpInside)
             
             
             tabBar.addSubview(centerButton)
@@ -83,8 +88,8 @@ class RootViewController: UITabBarController {
         
         for (index,tabBar) in tabBar.items!.enumerated() {
             tabBar.title = titles[index]
-            tabBar.image = UIImage(named: images[index])?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-            tabBar.selectedImage = UIImage(named: images[index] + "-selected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            tabBar.image = UIImage(named: images[index])?.withRenderingMode(.alwaysOriginal)
+            tabBar.selectedImage = UIImage(named: images[index] + "-selected")?.withRenderingMode(.alwaysOriginal)
         }
         
         tabBar.tintColor = UIColor(colorLiteralRed: 50/255.0, green: 205/255.0, blue: 100/255.0, alpha: 1.0)

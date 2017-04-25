@@ -21,65 +21,69 @@ class InformationTableViewController: UITableViewController {
     let dataSource = InformationTableViewDataSource()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.tableView.tableHeaderView = imageScrollView
-        self.tableView.tableHeaderView?.backgroundColor = UIColor.red
-        self.tableView.backgroundColor = UIColor.green
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
-        //利用iOS8新特性计算cell的实际高度
-        self.tableView.estimatedRowHeight = 80
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        self.tableView.dataSource = dataSource
-        
-        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            [weak self] in
-        
-            self?.model.refreshNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
-                if error == nil {
-                    self?.dataSource.cellModels = models!
-                    self?.tableView.reloadData()
-                } else { //to do待处理
-                    print(error!)
-                }
-                self?.tableView.mj_header.endRefreshing()
-            })
+        func configureTableView() {
+            tableView.tableHeaderView = imageScrollView
+            tableView.tableHeaderView?.backgroundColor = UIColor.red
+            tableView.backgroundColor = UIColor.green
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+            //利用iOS8新特性计算cell的实际高度
+            tableView.estimatedRowHeight = 80
+            tableView.rowHeight = UITableViewAutomaticDimension;
+            tableView.dataSource = dataSource
             
-            self?.model.requestImageInfo { (URLs:[String]?, error:NSError?) in
-                if error == nil {
-                    self?.imageScrollView.urls = URLs;
-                } else { //to do待处理
-                    print(error!)
+            tableView.mj_header = MJRefreshNormalHeader {
+                [unowned self] in
+                
+                self.model.refreshNews { [weak self] (models:[InformationTableViewCellModel]?, error:NSError?) in
+                    if error == nil {
+                        self?.dataSource.cellModels = models!
+                        self?.tableView.reloadData()
+                    } else { //to do待处理
+                        print(error!)
+                    }
+                    self?.tableView.mj_header.endRefreshing()
+                }
+                
+                self.model.requestImageInfo { [weak self] (URLs:[String]?, error:NSError?) in
+                    if error == nil {
+                        self?.imageScrollView.urls = URLs;
+                    } else { //to do待处理
+                        print(error!)
+                    }
                 }
             }
-        })
-        
-        
-        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-            [weak self] in
-            self?.model.appendNews(complete: { (models:[InformationTableViewCellModel]?, error:NSError?) in
-                if error == nil {
-                    self?.dataSource.cellModels = models!
-                    self?.tableView.reloadData()
-                } else { //to do待处理
-                    print(error!)
+            
+            
+            tableView.mj_footer = MJRefreshBackNormalFooter {
+                [unowned self] in
+                self.model.appendNews {[weak self] (models:[InformationTableViewCellModel]?, error:NSError?) in
+                    
+//                    guard self != nil else {
+//                        return
+//                    }
+                    
+                    if error == nil {
+                        self?.dataSource.cellModels = models!
+                        self?.tableView.reloadData()
+                    } else { //to do待处理
+                        print(error!)
+                    }
+                    self?.tableView.mj_footer.endRefreshing()
                 }
-                self?.tableView.mj_footer.endRefreshing()
-            })
-        })
+            }
+            
+            
+            
+           
+        }
         
-     
+        super.viewDidLoad()
         
-   
-     
+        configureTableView()
         
-        self.tableView.mj_header.beginRefreshing()
         
+        tableView.mj_header.beginRefreshing()
         
     }
     

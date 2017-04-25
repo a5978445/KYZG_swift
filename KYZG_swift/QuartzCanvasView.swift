@@ -17,11 +17,11 @@ class QuartzCanvasView: UIView {
      // Drawing code
      }
      */
-    let PI:CGFloat = 3.14159265358979323846
+    let PI: CGFloat = 3.14159265358979323846
     
     
-    var  _center:CGPoint
-    var  offestCenter:CGPoint? {
+    var  _center: CGPoint
+    var  offestCenter: CGPoint? {
         didSet {
             let originX = _center.x + (offestCenter?.x)!;
             let originY = _center.y + (offestCenter?.y)!;

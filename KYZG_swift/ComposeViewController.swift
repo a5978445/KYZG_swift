@@ -17,9 +17,23 @@ class ComposeViewController: UIViewController {
         }
     }
     
-    let buttons = NavButtons(frame: CGRect(x: 0, y: 64, width:kScreenWidth, height: 44))
-    let contentView = UIView()
-    var currentVC:UIViewController?
+    private lazy var buttons = { () -> NavButtons  in
+        let result = NavButtons(frame: CGRect(x: 0, y: 64, width:kScreenWidth, height: 44))
+        result.reponse = {
+            
+            guard $0 < self.childViewControllers.count else {
+                return
+            }
+            
+            self.updateContentView(addChildVC: self.childViewControllers[$0], toRomoveChildVC: self.currentVC)
+            self.currentVC = self.childViewControllers[$0]
+            
+        }
+        return result
+    }()
+    
+    private let contentView = UIView()
+    private var currentVC:UIViewController?
     
     
     override func viewDidLoad() {
@@ -29,40 +43,19 @@ class ComposeViewController: UIViewController {
         
         addSubViews()
         
-        currentVC = self.childViewControllers[0]
+        currentVC = childViewControllers[0]
         
         
-        self.updateContentView(addChildVC: currentVC!, toRomoveChildVC: nil)
+        updateContentView(addChildVC: currentVC!, toRomoveChildVC: nil)
         
     }
  
     
     func addSubViews() -> Void {
-        self.view.addSubview(buttons)
-        self.view.addSubview(contentView)
+        view.addSubview(buttons)
+        view.addSubview(contentView)
         
-        buttons.reponse = { (x:Int) ->Void in
-            if x < self.childViewControllers.count {
-                
-                self.updateContentView(addChildVC: self.childViewControllers[x], toRomoveChildVC: self.currentVC)
-                self.currentVC = self.childViewControllers[x]
-                //  self.currentVC?.didMove(toParentViewController: self)
-            }
-            print(x)
-        }
-        
-        buttons.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(0)
-            make.top.equalToSuperview().offset(64)
-            make.height.equalTo(44)
-            make.width.equalTo(kScreenWidth)
-        }
-        contentView.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            make.top.equalTo(buttons.snp.bottom)
-            make.bottom.equalToSuperview()
-        }
+
         
        
     }
@@ -79,7 +72,27 @@ class ComposeViewController: UIViewController {
         }
         
     }
+    
+    
+    // MARK: override method
+    override func updateViewConstraints() {
         
+        
+        buttons.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(0)
+            make.top.equalToSuperview().offset(64)
+            make.height.equalTo(44)
+            make.width.equalTo(kScreenWidth)
+        }
+        contentView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.top.equalTo(buttons.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        super.updateViewConstraints()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

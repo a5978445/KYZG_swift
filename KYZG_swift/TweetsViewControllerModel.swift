@@ -14,21 +14,21 @@ import SwiftyJSON
 class TweetsViewControllerModel: NSObject {
     
     private var models = [TweetModel]()
-    var tweetType: TweetType = TweetType.newTweet;
+    var tweetType: TweetType = .newTweet;
     var nextPageToken:String?
     
     
-    open func addTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
+    func addTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
         self.requestTweets(complete: complete, parameters: ["type":tweetType.rawValue,"pageToken":self.nextPageToken!], isRefresh: false)
     }
     
-    open func requestNewTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
+    func requestNewTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
         self.requestTweets(complete: complete, parameters: ["type":tweetType.rawValue], isRefresh: true)
     }
     
-    open func requestTweets(complete:@escaping ([TweetModel]?,NSError?)->Void,
-                            parameters:[String:Any],
-                            isRefresh:Bool) -> Void {
+    func requestTweets(complete:@escaping ([TweetModel]?,NSError?)->Void,
+                       parameters:[String:Any],
+                       isRefresh:Bool) -> Void {
         Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + OSCAPI_TWEETS,
                           method: HTTPMethod.get,
                           parameters: parameters,
@@ -81,7 +81,7 @@ class TweetsViewControllerModel: NSObject {
     
     
     
-    func getModelsWithJSONs(aJSONs:[JSON]) -> [TweetModel] {
+    private func getModelsWithJSONs(aJSONs:[JSON]) -> [TweetModel] {
         var resultModels = [TweetModel]()
         for value in aJSONs {
             let data:Data

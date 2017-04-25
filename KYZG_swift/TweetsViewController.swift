@@ -13,7 +13,7 @@ import MJRefresh
 
 
 
-public enum TweetType : Int {
+public enum TweetType: Int {
     case newTweet = 1
     case hotTweet = 2
     case myTweet = 3
@@ -33,16 +33,18 @@ class TweetsViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.tableView.estimatedRowHeight = 80
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableViewAutomaticDimension;
         tableView.dataSource = dataSource
         
         
-        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock:{ [weak self] in
-            self?.model.requestNewTweets {[weak self] (models:[TweetModel]?, error:NSError?) in
+        tableView.mj_header = MJRefreshNormalHeader {
+            [unowned self] in
+            self.model.requestNewTweets {[weak self] (models:[TweetModel]?, error:NSError?) in
                 guard self != nil else {
                     return
                 }
+                
                 if error == nil {
                     self?.dataSource.models = models!;
                     self?.tableView.reloadData()
@@ -53,10 +55,10 @@ class TweetsViewController: UITableViewController {
             }
             
             
-        })
+        }
         
         
-        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+        tableView.mj_footer = MJRefreshBackNormalFooter {
             [weak self] in
             self?.model.addTweets { [weak self] (models:[TweetModel]?, error:NSError?) in
                 guard self != nil else {
@@ -79,9 +81,9 @@ class TweetsViewController: UITableViewController {
             }
             
             
-        })
+        }
         
-        self.tableView.mj_header.beginRefreshing()
+        tableView.mj_header.beginRefreshing()
     }
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

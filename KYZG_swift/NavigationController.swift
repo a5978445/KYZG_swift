@@ -12,10 +12,10 @@ class NavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.tintColor = UIColor.white
-        self.navigationBar.barTintColor = UIColor.RGB(r: 74, g: 210, b: 120);
+        navigationBar.tintColor = UIColor.white
+        navigationBar.barTintColor = UIColor.RGB(r: 74, g: 210, b: 120);
      
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         // Do any additional setup after loading the view.
     }
 
@@ -26,7 +26,7 @@ class NavigationController: UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
-            return UIStatusBarStyle.lightContent;
+            return .lightContent;
         }
     }
     
