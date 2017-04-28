@@ -131,7 +131,8 @@ class InformationTableViewControllerModel: NSObject {
                 
                 return InformationTableViewCellModel(information: aOSCInformation!)
             } catch {
-                exit(0)
+                fatalError("model解析失败")
+                
             }
         }
     }
@@ -146,7 +147,7 @@ class InformationTableViewControllerModel: NSObject {
                 return OSCBanner.deserialize(from:data)!
             }
             catch  {
-                exit(0)
+                fatalError("model解析失败")
             }
         }
         

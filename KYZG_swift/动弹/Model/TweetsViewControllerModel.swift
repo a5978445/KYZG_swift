@@ -15,24 +15,28 @@ class TweetsViewControllerModel: NSObject {
     
     private var models = [TweetModel]()
     var tweetType: TweetType = .newTweet;
-    var nextPageToken:String?
+    var nextPageToken: String?
     
     
-    func addTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
-        self.requestTweets(complete: complete, parameters: ["type":tweetType.rawValue,"pageToken":self.nextPageToken!], isRefresh: false)
+    func addTweets(complete: @escaping ([TweetModel]?,NSError?) -> Void)  {
+        self.requestTweets(complete: complete,
+                           parameters: ["type": tweetType.rawValue, "pageToken": self.nextPageToken!],
+                           isRefresh: false)
     }
     
-    func requestNewTweets(complete:@escaping ([TweetModel]?,NSError?)->Void) ->Void {
-        self.requestTweets(complete: complete, parameters: ["type":tweetType.rawValue], isRefresh: true)
+    func requestNewTweets(complete: @escaping ([TweetModel]?, NSError?) -> Void)  {
+        self.requestTweets(complete: complete,
+                           parameters: ["type":tweetType.rawValue],
+                           isRefresh: true)
     }
     
-    func requestTweets(complete:@escaping ([TweetModel]?,NSError?)->Void,
-                       parameters:[String:Any],
-                       isRefresh:Bool) -> Void {
+    func requestTweets(complete: @escaping ([TweetModel]?,NSError?) -> Void,
+                       parameters: [String:Any],
+                       isRefresh: Bool)  {
         Alamofire.request(OSCAPI_V2_HTTPS_PREFIX + OSCAPI_TWEETS,
                           method: HTTPMethod.get,
                           parameters: parameters,
-                          encoding:URLEncoding.default ,
+                          encoding: URLEncoding.default ,
                           headers: nil)
             .responseJSON { response in
                 
@@ -82,21 +86,16 @@ class TweetsViewControllerModel: NSObject {
     
     
     private func getModelsWithJSONs(aJSONs:[JSON]) -> [TweetModel] {
-        var resultModels = [TweetModel]()
-        for value in aJSONs {
+     
+        return aJSONs.map { value in
             let data:Data
             do {
                 data = try value.rawData()
-                let dic = value.rawValue as! Dictionary<String, Any>
-                resultModels.append(TweetModel.deserialize(from: data)!)
+                return TweetModel.deserialize(from: data)!
             } catch  {
-                print("解析失败：TweetModel")
+                fatalError("model解析失败")
             }
         }
-        
-        
-        
-        return resultModels
     }
     
 }

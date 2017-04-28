@@ -14,10 +14,10 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
     
-    
+    // MARK: BodyView
     class BodyView: UIView {
         
-        
+        //MARK: AboutView
         class AboutView: UIView {
             var about: OSCAbout? {
                 didSet {
@@ -26,30 +26,39 @@ class TweetTableViewCell: UITableViewCell {
                 }
             }
             
-            var titleLabel = UILabel()
+            var titleLabel = { () -> UILabel in
+                let label = UILabel()
+                label.numberOfLines = 0
+                label.textColor = UIColor.green
+                label.font = UIFont.systemFont(ofSize: 14)
+                return label
+            }()
             
-            var contentLabel = UILabel()
+            var contentLabel = { () -> UILabel in
+                let label = UILabel()
+                label.numberOfLines = 0
+                label.textColor = UIColor.black
+                label.font = UIFont.systemFont(ofSize: 14)
+                
+                return label
+            }()
             
             override init(frame: CGRect) {
                 
-                
-                
-                
-                
-                
                 super.init(frame: frame)
                 
-                titleLabel.numberOfLines = 0
-                contentLabel.numberOfLines = 0
+                addSubview(titleLabel)
+                addSubview(contentLabel)
                 
-                titleLabel.textColor = UIColor.green
-                contentLabel.textColor = UIColor.black
-                titleLabel.font = UIFont.systemFont(ofSize: 14)
-                contentLabel.font = UIFont.systemFont(ofSize: 14)
-                
-                self.addSubview(titleLabel)
-                self.addSubview(contentLabel)
-                
+                updateConstraints()
+               
+            }
+            
+            required init?(coder aDecoder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
+            
+            override func updateConstraints() {
                 titleLabel.snp.makeConstraints { make in
                     make.left.equalTo(8)
                     make.right.equalTo(-8)
@@ -62,10 +71,8 @@ class TweetTableViewCell: UITableViewCell {
                     make.top.equalTo(titleLabel.snp.bottom).offset(8)
                     make.bottom.equalToSuperview().offset(-8)
                 }
-            }
-            
-            required init?(coder aDecoder: NSCoder) {
-                fatalError("init(coder:) has not been implemented")
+                
+                super.updateConstraints()
             }
             
         }
@@ -81,10 +88,7 @@ class TweetTableViewCell: UITableViewCell {
         var singleImage: OSCNetImage? {
             didSet {
                 
-           
-                
-                
-                singleImageView?.kf.setImage(with: URL(string: (singleImage?.thumb)!))
+            singleImageView?.kf.setImage(with: URL(string: (singleImage?.thumb)!))
                 singleImageView?.snp.updateConstraints({ make in
                     make.width.equalTo(calculateSize().width)
                     make.height.equalTo(calculateSize().height)
@@ -96,7 +100,7 @@ class TweetTableViewCell: UITableViewCell {
         var aboutView: AboutView?
         var singleImageView: UIImageView?
         
-        var about:OSCAbout? {
+        var about: OSCAbout? {
             didSet {
                 aboutView?.about = about
             }
@@ -107,8 +111,10 @@ class TweetTableViewCell: UITableViewCell {
             
            get {
                 
-                func contentLabelHeight() ->CGFloat {
-                    return contentLable.textRect(forBounds: CGRect(x:CGFloat(0),y:CGFloat(0),width:self.frame.width,height:CGFloat.greatestFiniteMagnitude), limitedToNumberOfLines: 0).height
+                func contentLabelHeight() -> CGFloat {
+                    return contentLable.textRect(forBounds: CGRect(x:CGFloat(0),y:CGFloat(0),
+                                                                   width:frame.width,
+                                                                   height:CGFloat.greatestFiniteMagnitude), limitedToNumberOfLines: 0).height
                 }
                 
                 switch infoType! {
@@ -123,14 +129,14 @@ class TweetTableViewCell: UITableViewCell {
             }
         }
         
-        func calculateSize() ->CGSize {
+        func calculateSize() -> CGSize {
       
-            let originImageSize = CGSize(width: (singleImage?.w)! / 4, height: (self.singleImage?.h)! / 4)
+            let originImageSize = CGSize(width: (singleImage?.w)! / 4, height: (singleImage?.h)! / 4)
             let originScale = originImageSize.width / originImageSize.height
             if  originScale > 1 {
                 
-                if originImageSize.width > self.frame.width / 2 {
-                    let width = self.frame.width / 2
+                if originImageSize.width > frame.width / 2 {
+                    let width = frame.width / 2
                     return CGSize(width: width, height: width / originScale)
                 } else {
                     return originImageSize
@@ -156,10 +162,10 @@ class TweetTableViewCell: UITableViewCell {
             
             self.init(frame:frame)
             
-            self.infoType = type;
+            infoType = type;
             contentLable.font = UIFont.systemFont(ofSize: 14)
             contentLable.numberOfLines = 0
-            self.addSubview(contentLable)
+            addSubview(contentLable)
           
             
         
@@ -173,9 +179,9 @@ class TweetTableViewCell: UITableViewCell {
                     make.bottom.equalTo(0)
                 }
             case .about:
-                aboutView = AboutView(frame: self.frame)
+                aboutView = AboutView(frame: frame)
                 aboutView?.backgroundColor = UIColor.gray
-                self.addSubview(aboutView!)
+                addSubview(aboutView!)
                 
                 contentLable.snp.makeConstraints { make in
                     make.left.equalTo(0)
@@ -193,7 +199,7 @@ class TweetTableViewCell: UITableViewCell {
                 })
             case .singleImage(let aImageInfo):
                 singleImageView = UIImageView()
-                self.addSubview(singleImageView!)
+                addSubview(singleImageView!)
                 
                 
                 contentLable.snp.makeConstraints { make in
@@ -231,6 +237,7 @@ class TweetTableViewCell: UITableViewCell {
         
     }
     
+    // MARK: BottomView
     class BottomView:UIView {
         
         let timeInfoLabel = UILabel()
@@ -267,10 +274,10 @@ class TweetTableViewCell: UITableViewCell {
             commentButton.setTitle("评论", for: UIControlState.normal)
             transpondButton.setTitle("转发", for: UIControlState.normal)
             
-            self.addSubview(timeInfoLabel)
-            self.addSubview(commentButton)
-            self.addSubview(priaseButton)
-            self.addSubview(transpondButton)
+            addSubview(timeInfoLabel)
+            addSubview(commentButton)
+            addSubview(priaseButton)
+            addSubview(transpondButton)
             
             timeInfoLabel.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
@@ -299,14 +306,19 @@ class TweetTableViewCell: UITableViewCell {
         
     }
     
-    private var userLabel = UILabel()
+    private lazy var userLabel = { () -> UILabel in
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+    
     private var portraitImageView = UIImageView()
     
     
     private var bottomView = BottomView()
     private var bodyView: BodyView?
     
-    var model:TweetModel? {
+    var model: TweetModel? {
         didSet {
             if let name = model?.author?.name  {
                 userLabel.text = name
@@ -365,12 +377,10 @@ class TweetTableViewCell: UITableViewCell {
     
     convenience init(reuseIdentifier: String?,model:TweetModel) {
         
-        
         self.init(style:UITableViewCellStyle.default,reuseIdentifier:reuseIdentifier)
-        
         bodyView = BodyView(frame: CGRect(x: 0, y: 0, width: kScreenWidth - 75, height: 0),type:model.infoType)
         
-        userLabel.font = UIFont.systemFont(ofSize: 15)
+        
         
         contentView.addSubview(userLabel)
         contentView.addSubview(portraitImageView)
@@ -380,6 +390,30 @@ class TweetTableViewCell: UITableViewCell {
         //  bodyView.backgroundColor = UIColor.red
         //   bottomView.backgroundColor = UIColor.gray
         
+        updateConstraints()
+        self.model = model
+        
+    }
+    
+    private override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
+
+        super.init(style:style,reuseIdentifier:reuseIdentifier)
+        
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    override func updateConstraints() {
         portraitImageView.snp.makeConstraints { make in
             make.width.equalTo(40)
             make.height.equalTo(40)
@@ -407,24 +441,7 @@ class TweetTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-8)
         }
         
-        self.model = model
-    }
-    
-    private override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        
-        super.init(style:style,reuseIdentifier:reuseIdentifier)
-        
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        super.updateConstraints()
     }
     
 }
