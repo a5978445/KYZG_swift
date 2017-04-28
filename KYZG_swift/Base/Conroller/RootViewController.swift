@@ -84,12 +84,13 @@ class RootViewController: UITabBarController {
         
         let titles = ["综合", "动弹", "", "发现", "我的"];
         let images = ["tabbar-news", "tabbar-tweet", "", "tabbar-discover", "tabbar-me"];
+        let selectedImages = images.map { $0 + "-selected" }
        
         
         for (index,tabBar) in tabBar.items!.enumerated() {
             tabBar.title = titles[index]
             tabBar.image = UIImage(named: images[index])?.withRenderingMode(.alwaysOriginal)
-            tabBar.selectedImage = UIImage(named: images[index] + "-selected")?.withRenderingMode(.alwaysOriginal)
+            tabBar.selectedImage = UIImage(named: selectedImages[index])?.withRenderingMode(.alwaysOriginal)
         }
         
         tabBar.tintColor = UIColor(colorLiteralRed: 50/255.0, green: 205/255.0, blue: 100/255.0, alpha: 1.0)
