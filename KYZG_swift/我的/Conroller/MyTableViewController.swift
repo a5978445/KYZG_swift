@@ -55,7 +55,7 @@ class MyTableViewController: UITableViewController {
             alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { action in
                 
             }))
-            
+                print(self.navigationController)
           //  self.show(alertController, sender: nil)
             self.present(alertController, animated: true, completion: nil)
         }

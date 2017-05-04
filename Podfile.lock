@@ -7,8 +7,14 @@ PODS:
   - Kingfisher (3.5.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
+  - Moya (8.0.3):
+    - Moya/Core (= 8.0.3)
+  - Moya/Core (8.0.3):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
   - PinAuto (2.1)
   - PKHUD (4.2.0)
+  - Result (3.2.1)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
@@ -18,8 +24,9 @@ DEPENDENCIES:
   - DateToolsSwift (~> 2.0.0)
   - HandyJSON (~> 1.6.0)
   - Kingfisher (~> 3.5.0)
-  - MJExtension (~> 3.0.13)
+  - MJExtension
   - MJRefresh (~> 3.1.12)
+  - Moya
   - PKHUD (~> 4.0)
   - SnapKit (~> 3.2.0)
   - SwiftyJSON (~> 3.1.4)
@@ -32,11 +39,13 @@ SPEC CHECKSUMS:
   Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   PinAuto: cc406f453a35292a9f892d7f94f5cc71e5e99762
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f70f43770c77150bf5ea872454d954afc7866d59
+PODFILE CHECKSUM: 2d38d62ad96d20c2060c3f78b2c527f33d5fc5d4
 
 COCOAPODS: 1.2.0

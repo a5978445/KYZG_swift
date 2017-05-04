@@ -26,6 +26,7 @@ class ComposeViewController: UIViewController {
             }
             
             self.updateContentView(addChildVC: self.childViewControllers[$0], toRomoveChildVC: self.currentVC)
+             
             self.currentVC = self.childViewControllers[$0]
             
         }

@@ -45,6 +45,8 @@ class MyTableHeaderView: UIView {
                 if self?.showLogin != nil {
                     self?.showLogin!()
                 }
+            
+              //  self?.showLogin!()
             }
         }
         

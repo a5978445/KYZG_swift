@@ -17,30 +17,30 @@ public enum InformationType:Int,HandyJSONEnum {
     case translation//翻译文章
     case activity//活动类型
     case info = 6//资讯
+    case unknown
 }
 
 class OSCInformation: HandyJSON {
 
-    //因mjExtention 无法直接转成int 型，所以这里定义为NSNumber型
-    var id:Int?
+    var id:Int = 0
     
-    var title:String?
+    var title:String = ""
     
-    var body:String?
+    var body:String = ""
     
-    var commentCount:Int?
+    var commentCount:Int = 0
     
-    var viewCount:Int?
+    var viewCount:Int = 0
     
-    var author:String?
+    var author:String = ""
     
-    var href:String?
+    var href:String = ""
     
-    var recommend:Int?
+    var recommend:Int = 0
     
-    var pubDate:String?
+    var pubDate:String = ""
     
-    var type:InformationType?
+    var type:InformationType = .unknown
     
     required init() {}
     

@@ -55,6 +55,9 @@
 		14AFCF531EB333ED00B75272 /* ParsingXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AFCF2B1EB333ED00B75272 /* ParsingXML.m */; };
 		14AFCF551EB3350C00B75272 /* InformationTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AFCF541EB3350C00B75272 /* InformationTableViewControllerModel.swift */; };
 		14AFCF571EB33AD400B75272 /* NetWorkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AFCF561EB33AD400B75272 /* NetWorkConstant.swift */; };
+		14BED5841EBAC2B40035B614 /* KYZGAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BED5831EBAC2B40035B614 /* KYZGAPI.swift */; };
+		14BED5861EBB05DC0035B614 /* KYZGRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BED5851EBB05DC0035B614 /* KYZGRequest.swift */; };
+		14BED5881EBB107A0035B614 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BED5871EBB107A0035B614 /* NewsModel.swift */; };
 		27E8E155786F30F83A0393C6 /* Pods_KYZG_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */; };
 		A03A5CBB1FFCB1E132105F24 /* Pods_KYZG_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -134,6 +137,9 @@
 		14AFCF2B1EB333ED00B75272 /* ParsingXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingXML.m; sourceTree = "<group>"; };
 		14AFCF541EB3350C00B75272 /* InformationTableViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewControllerModel.swift; sourceTree = "<group>"; };
 		14AFCF561EB33AD400B75272 /* NetWorkConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkConstant.swift; sourceTree = "<group>"; };
+		14BED5831EBAC2B40035B614 /* KYZGAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYZGAPI.swift; sourceTree = "<group>"; };
+		14BED5851EBB05DC0035B614 /* KYZGRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYZGRequest.swift; sourceTree = "<group>"; };
+		14BED5871EBB107A0035B614 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		143EF2931E5D291500544B8B /* KYZG_swift */ = {
 			isa = PBXGroup;
 			children = (
+				14BED5821EBAC2970035B614 /* share */,
 				14AFCEDB1EB333ED00B75272 /* 动弹 */,
 				14AFCEE41EB333ED00B75272 /* 发现 */,
 				14AFCEEA1EB333ED00B75272 /* 添加动弹 */,
@@ -475,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				14AFCF101EB333ED00B75272 /* OSCInformation.swift */,
+				14BED5871EBB107A0035B614 /* NewsModel.swift */,
 				14AFCF111EB333ED00B75272 /* OSCUser.swift */,
 				14AFCF121EB333ED00B75272 /* TweetModel.swift */,
 			);
@@ -576,6 +584,15 @@
 				14AFCF2B1EB333ED00B75272 /* ParsingXML.m */,
 			);
 			path = ParsingXML;
+			sourceTree = "<group>";
+		};
+		14BED5821EBAC2970035B614 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				14BED5831EBAC2B40035B614 /* KYZGAPI.swift */,
+				14BED5851EBB05DC0035B614 /* KYZGRequest.swift */,
+			);
+			path = share;
 			sourceTree = "<group>";
 		};
 		1F9EEBE42D2CDD1395858D06 /* Frameworks */ = {
@@ -845,6 +862,7 @@
 				14AFCF421EB333ED00B75272 /* ComposeViewController.swift in Sources */,
 				14AFCF4A1EB333ED00B75272 /* OSCBanner.swift in Sources */,
 				14AFCF441EB333ED00B75272 /* RootViewController.swift in Sources */,
+				14BED5841EBAC2B40035B614 /* KYZGAPI.swift in Sources */,
 				14AFCF3E1EB333ED00B75272 /* InformationTableViewDataSource.swift in Sources */,
 				14AFCF331EB333ED00B75272 /* MyTableViewDataSource.swift in Sources */,
 				14AFCF4B1EB333ED00B75272 /* PlaceholderTextView.swift in Sources */,
@@ -862,6 +880,7 @@
 				14AFCF2E1EB333ED00B75272 /* TweetsViewControllerModel.swift in Sources */,
 				14AFCF361EB333ED00B75272 /* MyTableHeaderView.swift in Sources */,
 				14AFCF321EB333ED00B75272 /* MyTableViewController.swift in Sources */,
+				14BED5881EBB107A0035B614 /* NewsModel.swift in Sources */,
 				14AFCF401EB333ED00B75272 /* InformationTableViewCellModel.swift in Sources */,
 				14AFCF351EB333ED00B75272 /* UserInfoViewModel.swift in Sources */,
 				14AFCF341EB333ED00B75272 /* SettingViewController.swift in Sources */,
@@ -872,6 +891,7 @@
 				14AFCF311EB333ED00B75272 /* SendTweetsViewController.swift in Sources */,
 				14AFCF551EB3350C00B75272 /* InformationTableViewControllerModel.swift in Sources */,
 				14AFCF301EB333ED00B75272 /* FoundTableViewController.swift in Sources */,
+				14BED5861EBB05DC0035B614 /* KYZGRequest.swift in Sources */,
 				14AFCF4E1EB333ED00B75272 /* UIColor+RGB.swift in Sources */,
 				14AFCF371EB333ED00B75272 /* QuartzCanvasView.swift in Sources */,
 				14AFCF2D1EB333ED00B75272 /* TweetsViewControllerDataSource.swift in Sources */,

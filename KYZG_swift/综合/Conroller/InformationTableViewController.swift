@@ -17,7 +17,7 @@ class InformationTableViewController: UITableViewController {
     let imageScrollView = BannerScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 144))
     
     let model = InformationTableViewControllerModel()
-   // var cellModels = [InformationTableViewCellModel]()
+   
     let dataSource = InformationTableViewDataSource()
     
     override func viewDidLoad() {
@@ -35,47 +35,51 @@ class InformationTableViewController: UITableViewController {
             tableView.mj_header = MJRefreshNormalHeader {
                 [unowned self] in
                 
-                self.model.refreshNews { [weak self] (models:[InformationTableViewCellModel]?, error:NSError?) in
-                    if error == nil {
-                        self?.dataSource.cellModels = models!
+                self.model.refreshNews { [weak self] (response: KYZGResponse<NewsModel>) in
+                    
+                    switch response {
+                    case let .sucess(model):
+                        self?.dataSource.cellModels = model.cellModels
                         self?.tableView.reloadData()
-                    } else { //to do待处理
-                        print(error!)
+                    case let .failure(error):
+                        print(error)
                     }
+                    
+                    
                     self?.tableView.mj_header.endRefreshing()
                 }
                 
-                self.model.requestImageInfo { [weak self] (URLs:[String]?, error:NSError?) in
-                    if error == nil {
-                        self?.imageScrollView.urls = URLs;
-                    } else { //to do待处理
-                        print(error!)
+                self.model.requestImageInfo { [weak self] (response:KYZGResponse<[String]>) in
+                    switch response {
+                    case let .sucess(urls):
+                         self?.imageScrollView.urls = urls;
+                    case let .failure(error):
+                        print(error)
                     }
+                   
                 }
             }
             
             
             tableView.mj_footer = MJRefreshBackNormalFooter {
                 [unowned self] in
-                self.model.appendNews {[weak self] (models:[InformationTableViewCellModel]?, error:NSError?) in
+                self.model.appendNews {[weak self] (response: KYZGResponse<NewsModel>) in
                     
-//                    guard self != nil else {
-//                        return
-//                    }
-                    
-                    if error == nil {
-                        self?.dataSource.cellModels = models!
+                    switch response {
+                    case let .sucess(model):
+                        self?.dataSource.cellModels = model.cellModels
                         self?.tableView.reloadData()
-                    } else { //to do待处理
-                        print(error!)
+                    case let .failure(error):
+                        print(error)
                     }
+                    
                     self?.tableView.mj_footer.endRefreshing()
                 }
             }
             
             
             
-           
+            
         }
         
         super.viewDidLoad()
@@ -87,7 +91,7 @@ class InformationTableViewController: UITableViewController {
         
     }
     
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         imageScrollView.startTimer()
@@ -102,7 +106,7 @@ class InformationTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     
     /*

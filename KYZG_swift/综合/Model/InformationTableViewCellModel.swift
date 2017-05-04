@@ -45,7 +45,7 @@ class InformationTableViewCellModel: NSObject {
         
         var result: NSMutableAttributedString
         
-        let date = Date(dateString: information.pubDate!, format: "yyyy-MM-dd HH:mm:ss")
+        let date = Date(dateString: information.pubDate, format: "yyyy-MM-dd HH:mm:ss")
         if (date.isToday) {
             let textAttachment = NSTextAttachment()
             textAttachment.image = UIImage(named:"widget_taday");
@@ -55,10 +55,10 @@ class InformationTableViewCellModel: NSObject {
             result = NSMutableAttributedString(attributedString: attachmentString)
             result.append(NSAttributedString(string: " "))
             
-            result.append(NSAttributedString(string: information.title!))
+            result.append(NSAttributedString(string: information.title))
             
         } else {
-            result = NSMutableAttributedString(string: information.title!)
+            result = NSMutableAttributedString(string: information.title)
             
         }
         
@@ -68,7 +68,7 @@ class InformationTableViewCellModel: NSObject {
     
     private func getAttributedCommentCount() -> NSAttributedString {
     
-            return NSAttributedString(string: "回复：" + String(information.commentCount!),
+            return NSAttributedString(string: "回复：" + String(information.commentCount),
                                                         attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
        
     }
@@ -76,7 +76,7 @@ class InformationTableViewCellModel: NSObject {
  
     private func getTimeString() -> NSAttributedString {
         
-        let aDate = Date(dateString: information.pubDate!, format: "yyyy-MM-dd HH:mm:ss")
+        let aDate = Date(dateString: information.pubDate, format: "yyyy-MM-dd HH:mm:ss")
         return  NSAttributedString(string: aDate.timeAgoSinceNow, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
         
         
@@ -84,7 +84,7 @@ class InformationTableViewCellModel: NSObject {
     
     private func getBodyString() -> NSAttributedString {
   
-            return  NSAttributedString(string: information.body!,
+            return  NSAttributedString(string: information.body,
                                             attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
   
     }
