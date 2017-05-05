@@ -40,17 +40,19 @@ class TweetsViewController: UITableViewController {
         
         tableView.mj_header = MJRefreshNormalHeader {
             [unowned self] in
-            self.model.requestNewTweets {[weak self] (models:[TweetModel]?, error:NSError?) in
+            self.model.requestNewTweets {[weak self] response in
                 guard self != nil else {
                     return
                 }
                 
-                if error == nil {
-                    self?.dataSource.models = models!;
+                switch response {
+                case let .sucess(tweets):
+                    self?.dataSource.models = tweets.tweetModels;
                     self?.tableView.reloadData()
-                } else {
+                case let .failure(error):
                     print(error)
                 }
+                
                 self?.tableView.mj_header.endRefreshing()
             }
             
@@ -60,22 +62,20 @@ class TweetsViewController: UITableViewController {
         
         tableView.mj_footer = MJRefreshBackNormalFooter {
             [weak self] in
-            self?.model.addTweets { [weak self] (models:[TweetModel]?, error:NSError?) in
+            self?.model.addTweets { [weak self] response in
                 guard self != nil else {
                     return
                 }
-                if error == nil {
-                    if models != nil {
-                        self?.dataSource.models = models!;
-                        self?.tableView.reloadData()
-                        self?.tableView.mj_footer.endRefreshing()
-                    } else {
-                        self?.tableView.mj_footer.endRefreshingWithNoMoreData()
-                    }
-                } else {
+                
+                switch response {
+                case let .sucess(tweets):
+                    self?.dataSource.models = tweets.tweetModels;
+                    self?.tableView.reloadData()
+                case let .failure(error):
                     print(error)
-                    self?.tableView.mj_footer.endRefreshing()
                 }
+                
+                self?.tableView.mj_footer.endRefreshing()
                 
                 
             }

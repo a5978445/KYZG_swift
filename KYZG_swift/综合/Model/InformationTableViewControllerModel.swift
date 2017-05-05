@@ -19,6 +19,8 @@ class InformationTableViewControllerModel: NSObject {
     
     private var newsModel = NewsModel()
     
+    private var cellModels = [InformationTableViewCellModel]()
+    
     //MARK: public method
     func requestImageInfo(complete:@escaping (KYZGResponse<[String]>) -> Void)  {
         
@@ -36,7 +38,7 @@ class InformationTableViewControllerModel: NSObject {
     
     
     
-    func appendNews(complete: @escaping (KYZGResponse<NewsModel>) -> Void) {
+    func appendNews(complete: @escaping (KYZGResponse<[InformationTableViewCellModel]>) -> Void) {
         KYZGProvider.shareKYZGProvider.requestNews(nextPageToken: self.newsModel.nextPageToken) {[weak self]  response in
             guard self != nil else {
                 return
@@ -44,26 +46,33 @@ class InformationTableViewControllerModel: NSObject {
             switch response {
             case let .sucess(aNewsModel):
                 self?.newsModel = self!.newsModel + aNewsModel
-                complete(KYZGResponse.sucess(self!.newsModel))
-            case .failure(_):
-                complete(response)
+                self!.cellModels.append(contentsOf: aNewsModel.informations.map {InformationTableViewCellModel(information: $0)})
+                complete(KYZGResponse.sucess(self!.cellModels))
+            case let .failure(error):
+                complete(KYZGResponse<[InformationTableViewCellModel]>.failure(error))
             }
             
         }
         
     }
     
-    func refreshNews(complete: @escaping (KYZGResponse<NewsModel>) -> Void) {
+    func refreshNews(complete: @escaping (KYZGResponse<[InformationTableViewCellModel]>) -> Void) {
         
         KYZGProvider.shareKYZGProvider.requestNews(nextPageToken: nil) {[weak self]  response in
+            
+            guard self != nil else {
+                return
+            }
             
             switch response {
             case let .sucess(aNewsModel):
                 self?.newsModel = aNewsModel
-                
-            case .failure(_): break
+                self?.cellModels = aNewsModel.informations.map {InformationTableViewCellModel(information: $0)}
+                complete(KYZGResponse.sucess(self!.cellModels))
+            case let .failure(error):
+                complete(KYZGResponse<[InformationTableViewCellModel]>.failure(error))
             }
-            complete(response)
+          //  complete(response)
         }
         
         

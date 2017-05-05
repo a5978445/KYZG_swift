@@ -35,11 +35,11 @@ class InformationTableViewController: UITableViewController {
             tableView.mj_header = MJRefreshNormalHeader {
                 [unowned self] in
                 
-                self.model.refreshNews { [weak self] (response: KYZGResponse<NewsModel>) in
+                self.model.refreshNews { [weak self] (response: KYZGResponse<[InformationTableViewCellModel]>) in
                     
                     switch response {
-                    case let .sucess(model):
-                        self?.dataSource.cellModels = model.cellModels
+                    case let .sucess(cellModels):
+                        self?.dataSource.cellModels = cellModels
                         self?.tableView.reloadData()
                     case let .failure(error):
                         print(error)
@@ -63,11 +63,11 @@ class InformationTableViewController: UITableViewController {
             
             tableView.mj_footer = MJRefreshBackNormalFooter {
                 [unowned self] in
-                self.model.appendNews {[weak self] (response: KYZGResponse<NewsModel>) in
+                self.model.appendNews {[weak self] (response: KYZGResponse<[InformationTableViewCellModel]>) in
                     
                     switch response {
-                    case let .sucess(model):
-                        self?.dataSource.cellModels = model.cellModels
+                    case let .sucess(models):
+                        self?.dataSource.cellModels = models
                         self?.tableView.reloadData()
                     case let .failure(error):
                         print(error)

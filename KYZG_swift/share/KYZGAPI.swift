@@ -22,17 +22,25 @@ private extension String {
 public enum KYZG {
     case news(String?)
     case imageInfo
-    case userRepositories(String)
+    case tweets([String : Any])
+    case login([String : Any])
 }
 
 extension KYZG: TargetType {
-    public var baseURL: URL { return URL(string: "https://www.oschina.net/action/apiv2/")! }
+    public var baseURL: URL {
+        return URL(string: "https://www.oschina.net/action/apiv2/")!
+    }
+    
     public var path: String {
         switch self {
         case .news:
             return "news"
         case .imageInfo:
             return "banner"
+        case .tweets:
+            return "tweets"
+        case .login:
+            return "login_validate"
         default:
             return ""
         }
@@ -50,6 +58,10 @@ extension KYZG: TargetType {
             }
         case .imageInfo:
             return ["catalog" : 1]
+        case let .tweets(dic):
+            return dic
+        case let .login(dic):
+            return dic
         default:
             return nil
         }
@@ -60,22 +72,24 @@ extension KYZG: TargetType {
     public var task: Task {
         return .request
     }
-//    public var validate: Bool {
-////        switch self {
-////        case .news:
-////            return true
-////        default:
-////            return false
-////        }
-//        return false
-//    }
+    //    public var validate: Bool {
+    ////        switch self {
+    ////        case .news:
+    ////            return true
+    ////        default:
+    ////            return false
+    ////        }
+    //        return false
+    //    }
     public var sampleData: Data {
         switch self {
         case .news(_):
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
         case .imageInfo():
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-        case .userRepositories(_):
+        case .tweets(_):
+            return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
+        case .login(_):
             return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
         }
     }

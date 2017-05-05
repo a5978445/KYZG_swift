@@ -12,7 +12,7 @@ import HandyJSON
 import SwiftyJSON
 import Result
 
-
+let errorMsg = "请求失败"
 // MARK: - Provider setup
 func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
@@ -30,26 +30,22 @@ class KYZGProvider: MoyaProvider<KYZG> {
     
     func requestNews(nextPageToken: String?,complete: @escaping (KYZGResponse<NewsModel>) -> Void) {
         
-        KYZGProvider.shareKYZGProvider.request(.news(nextPageToken)) { completion in
+        request(.news(nextPageToken)) { completion in
             
             self.dealMoyaCompletion(input: completion, complete: complete) { (dic: JSON) in
                 
-                
-                var models = [InformationTableViewCellModel]()
-                
                 do {
-                    models = try self.infomations(infomationsJSON: dic["result"]["items"].arrayValue)
+                   let newsModel = try self.getNewsModel(dic["result"])
+                   
+                    return KYZGResponse.sucess(newsModel)
                 } catch {
                     let error = RequestError.mapToModel
                     return KYZGResponse<NewsModel>.failure(error)
                     
                 }
                 
-                let token = (dic["result"]["nextPageToken"].rawValue as AnyObject) as? String;
-                
-                let newsModel = NewsModel(cellModels: models, nextPageToken: token)
-                
-                return KYZGResponse.sucess(newsModel)
+              
+         
                 
             }
             
@@ -58,7 +54,7 @@ class KYZGProvider: MoyaProvider<KYZG> {
     
     func requestImageInfo(complete:@escaping (KYZGResponse<[OSCBanner]>) -> Void)  {
         
-        KYZGProvider.shareKYZGProvider.request(.imageInfo) { completion in
+        request(.imageInfo) { completion in
             
             self.dealMoyaCompletion(input: completion, complete: complete) { (dic: JSON) in
                 do {
@@ -76,6 +72,47 @@ class KYZGProvider: MoyaProvider<KYZG> {
         
     }
     
+    
+    func requesTweets(_ parameters:[String : Any],
+                      complete:@escaping (KYZGResponse<Tweets>) -> Void) {
+        request(.tweets(parameters)) { completion in
+            self.dealMoyaCompletion(input: completion, complete: complete) { (dic: JSON) in
+                
+                do {
+                    let aTweets = try self.getTweets(dic["result"])
+                    return KYZGResponse.sucess(aTweets)
+                } catch {
+                    return KYZGResponse.failure(RequestError.mapToModel)
+                }
+                
+            }
+        }
+        
+        
+    }
+    
+    func requestLogin(_ parameters:[String : Any],
+                       complete:@escaping (KYZGResponse<OSCUserInfo>) -> Void) {
+        request(.login(parameters)) { completion in
+            self.dealMoyaCompletion(input: completion, complete: complete) { (dic: JSON) in
+                
+                let data:Data
+                do{  data  = try  dic["obj_data"].rawData()
+                    
+                    let userInfo = OSCUserInfo.deserialize(from: data)
+                   
+                    return KYZGResponse.sucess(userInfo!)
+                }
+                catch {
+                  return KYZGResponse.failure(RequestError.mapToModel)
+                }
+                
+            }
+        }
+    }
+    
+    
+    // MARK: private method
     private func dealMoyaCompletion<T> (
         input: (Result<Moya.Response, Moya.MoyaError>),
         complete: @escaping (KYZGResponse<T>) -> Void ,
@@ -103,22 +140,12 @@ class KYZGProvider: MoyaProvider<KYZG> {
 
 extension KYZGProvider {
     //MARK: private method
-    fileprivate func infomations(infomationsJSON: [JSON]) throws -> [InformationTableViewCellModel] {
+    fileprivate func getNewsModel(_ aNewsJson: JSON) throws -> NewsModel {
         
-        let result: [InformationTableViewCellModel]
+        let data: Data = try aNewsJson.rawData()
+        let aNewsModel = NewsModel.deserialize(from: data)
         
-        result = try infomationsJSON.map { aInformationJSON in
-            let data:Data
-            data = try aInformationJSON.rawData()
-            let aOSCInformation = OSCInformation.deserialize(from: data)
-            
-            return InformationTableViewCellModel(information: aOSCInformation!)
-            
-            
-        }
-        
-        return result
-        
+        return aNewsModel!
         
     }
     
@@ -132,5 +159,17 @@ extension KYZGProvider {
         }
         
     }
+    
+
+    
+    fileprivate func getTweets(_ aTweetsJSON:JSON) throws -> Tweets {
+        
+        let data: Data = try aTweetsJSON.rawData()
+        let aTweets = Tweets.deserialize(from: data)
+        
+        return aTweets!
+        
+    }
+    
     
 }

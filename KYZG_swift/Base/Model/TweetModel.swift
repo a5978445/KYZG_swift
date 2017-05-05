@@ -10,7 +10,7 @@ import UIKit
 import HandyJSON
 
 
-public enum InfoType {
+enum InfoType {
     case normal
     case about
     case singleImage(OSCNetImage)
@@ -28,7 +28,7 @@ public enum InfoType {
 }
 
 
-public enum AppClientType:Int,HandyJSONEnum {
+public enum AppClientType: Int,HandyJSONEnum {
     case AppClientType_Unknown       = 0
     case AppClientType_Phone         = 1 //手机
     case AppClientType_Android       = 2 //Android
@@ -37,34 +37,34 @@ public enum AppClientType:Int,HandyJSONEnum {
     case AppClientType_WeChat        = 5 //WeChat
 }
 
-class OSCTweetAuthor:HandyJSON {
+struct OSCTweetAuthor: HandyJSON {
     var id: Int?
     var name: String?
     var portrait: String?
     
-    required init() {}
+  //  required init() {}
     
 }
 
-class OSCTweetAudio:HandyJSON {
+struct OSCTweetAudio: HandyJSON {
  
     var href: String?
     var timeSpan: String?
     
-    required init() {}
+  //  required init() {}
     
 }
 
-class OSCTweetCode:HandyJSON {
+struct OSCTweetCode: HandyJSON {
     
     var brush: String?
     var content: String?
     
-    required init() {}
+  //  required init() {}
     
 }
 
-public class OSCNetImage:HandyJSON {
+struct OSCNetImage: HandyJSON {
     
     var thumb: String?
     var href: String?
@@ -75,11 +75,11 @@ public class OSCNetImage:HandyJSON {
     var name: String?
     
     
-    required public init() {}
+   // required public init() {}
     
 }
 
-class OSCAbout:HandyJSON {
+struct OSCAbout: HandyJSON {
     
     var id: Int?
     var title: String?
@@ -89,25 +89,68 @@ class OSCAbout:HandyJSON {
     var href: String?
     var images: [OSCNetImage]?
     
-    required init() {}
+   // required init() {}
     
 }
 
-class OSCStatistics:HandyJSON {
+struct OSCStatistics: HandyJSON {
     
     var comment: Int?
     var view: Int?
     var like: Int?
     var transmit: Int?
  
-    required init() {}
+  //  required init() {}
     
 }
 
 
+struct Tweets: HandyJSON {
+    
+    var tweetModels = [TweetModel]()
+    var nextPageToken: String?
+    var prevPageToken : String!
+    var requestCount : Int!
+    var responseCount : Int!
+    var totalResults : Int!
+    
+    static func + (lhs: Tweets,rhs: Tweets) -> Tweets{
+        
+        var resultModels = lhs.tweetModels
+        var resultToken = lhs.nextPageToken
+        resultModels.append(contentsOf: rhs.tweetModels)
+        
+        resultToken = (rhs.nextPageToken ?? "")
+        
+
+        let prevPageToken = lhs.prevPageToken
+        let requestCount = lhs.requestCount + rhs.requestCount
+        let responseCount = lhs.responseCount + rhs.responseCount
+        let totalResults = lhs.totalResults + rhs.totalResults
+        
+        return Tweets(tweetModels: resultModels,
+                         nextPageToken: resultToken!,
+                         prevPageToken: prevPageToken!,
+                         requestCount: requestCount,
+                         responseCount: responseCount,
+                         totalResults: totalResults)
+        
+
+    }
+    
+    mutating func mapping(mapper: HelpingMapper) {
+        // specify 'cat_id' field in json map to 'id' property in object
+        mapper <<<
+            self.tweetModels <-- "items"
+        
+        // specify 'parent' field in json parse as following to 'parent' property in object
+        
+    }
+  //  required init() {}
+}
 
 
-class TweetModel: HandyJSON {
+struct TweetModel: HandyJSON {
     
     /*
      /*
@@ -176,5 +219,5 @@ class TweetModel: HandyJSON {
     }
     
     
-    required init() {}
+   // required init() {}
 }

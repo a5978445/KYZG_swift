@@ -20,7 +20,7 @@ public enum InformationType:Int,HandyJSONEnum {
     case unknown
 }
 
-class OSCInformation: HandyJSON {
+struct OSCInformation: HandyJSON {
 
     var id:Int = 0
     
@@ -42,7 +42,7 @@ class OSCInformation: HandyJSON {
     
     var type:InformationType = .unknown
     
-    required init() {}
+   // required init() {}
     
   
 }
