@@ -93,13 +93,7 @@ class InformationTableViewController: UITableViewController {
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        imageScrollView.startTimer()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        imageScrollView.cancelTimer()
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

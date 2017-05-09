@@ -8,8 +8,12 @@
 
 import UIKit
 import Kingfisher
+import RxSwift
+import RxCocoa
+//import RxGesture
+//import RxCocoa.UIGestureRecognizer+Rx
 
-class BannerScrollView: UIView,UIScrollViewDelegate {
+class BannerScrollView: UIView {
     
     /*
      // Only override draw() if you perform custom drawing.
@@ -18,63 +22,10 @@ class BannerScrollView: UIView,UIScrollViewDelegate {
      // Drawing code
      }
      */
-    let fireTime = 5.0
-    private var imgViews:[UIImageView] = []
     
-    private var pageCtrl = { () -> UIPageControl in
-        let pageControl = UIPageControl()
-        pageControl.currentPage = 0
-        pageControl.currentPageIndicatorTintColor = UIColor.white
-        pageControl.currentPageIndicatorTintColor = UIColor.RGB(r: 74, g: 210, b: 240)
-        return pageControl;
-    }()
+    //MARK: public property
+    var didSelect: ((_ tag: Int) -> ())?
     
-    private lazy var contentView = { () -> UIScrollView in
-        let scrollView = UIScrollView()
-        scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.delegate = self;
-        return scrollView
-    }()
-    
-    private var timer:Timer?
-    
-    override init(frame: CGRect) {
-        super.init(frame:frame)
-        
-        addSubview(contentView)
-        addSubview(pageCtrl)
-        
-
-        
-    }
-    
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    override func updateConstraints() {
-        pageCtrl.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(10)
-        }
-        
-        contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        super.updateConstraints()
-    }
-    
-    override func removeFromSuperview() {
-         timer?.invalidate()
-        super.removeFromSuperview()
-    }
-    
-    // MARK: interface
     var urls:[String]? {
         didSet {
             func removeOldImageViews() {
@@ -87,10 +38,29 @@ class BannerScrollView: UIView,UIScrollViewDelegate {
             func addNewImageViews() {
                 imgViews = { () -> [UIImageView] in
                     var result = [UIImageView]()
-                    for url in urls! {
+                    for (index,url) in urls!.enumerated() {
                         let aImageView = UIImageView()
                         
                         aImageView.kf.setImage(with: URL(string: url))
+                        
+                        /*
+                         let test = UITapGestureRecognizer()
+                         let testReactive = Reactive(test)
+                         testReactive.event.asObservable()
+                         .subscribe({ event in
+                         print("hello world!")
+                         })
+                         .disposed(by: disposeBag)
+                         
+                         aImageView.addGestureRecognizer(test)
+                         */
+                        aImageView.isUserInteractionEnabled = true
+                        aImageView.rx.tapGesture().subscribe(onNext: { [unowned self]_ in
+                            print("hello world! \(index)")
+                            self.didSelect?(index)
+                        })
+                            .disposed(by: disposeBag)
+                        
                         result.append(aImageView)
                     }
                     return result
@@ -123,41 +93,109 @@ class BannerScrollView: UIView,UIScrollViewDelegate {
             
             addNewImageViews()
             addImageViewsLayout()
-        
+            
             pageCtrl.currentPage = 0
             pageCtrl.numberOfPages = (urls?.count)!
+            
+            self.timeDisposable?.dispose()
+            observableTime =  Observable<Int>.interval(1, scheduler: ConcurrentMainScheduler.instance)
+            timeDisposable = observableTime!.filter({[unowned self] in
+                $0 % self.time == 0
+            })
+                .subscribe(onNext: {[weak self] _ in
+                    self?.fire()
+                })
+            
         }
     }
     
-    func cancelTimer() {
-        timer?.invalidate()
-    }
+    //MARK: private property
+    private let disposeBag = DisposeBag()
     
-    func startTimer() {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: fireTime,
-                                     target: self,
-                                     selector: #selector(self.fire(aTimer:)),
-                                     userInfo: nil,
-                                     repeats: true)
-    }
+    private var imgViews: [UIImageView] = []
+    private var time = 5
+    private var observableTime: Observable<Int>?
+    private var timeDisposable: Disposable?
     
+    // MARK: lazy Load
+    private var pageCtrl = { () -> UIPageControl in
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = UIColor.RGB(r: 74, g: 210, b: 240)
+        return pageControl;
+    }()
     
-    
-    // MARK: UIScrollView Delegate
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    private lazy var contentView = { () -> UIScrollView in
+        let scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
         
-        pageCtrl.currentPage = (Int)(scrollView.contentOffset.x / scrollView.frame.width);
-        timer?.fireDate = Date().addingTimeInterval(fireTime)
+        return scrollView
+    }()
+    
+    
+    
+    
+
+    // MARK: init Method 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addSubview(contentView)
+        addSubview(pageCtrl)
+        
+        contentView.rx.didEndDecelerating.asObservable()
+            .subscribe(onNext: { [unowned self] in
+                
+                self.pageCtrl.currentPage = (Int)(self.contentView.contentOffset.x / self.contentView.frame.width);
+
+                self.time = 5
+            })
+            .disposed(by: disposeBag)
+        
+        
+        contentView.rx.scrollViewWillBeginDragging.asObservable()
+            .subscribe(onNext: { [unowned self] in
+                
+                self.time = Int(INT32_MAX)
+
+            })
+            .disposed(by: disposeBag)
+        
+        
         
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        timer?.fireDate = (timer?.fireDate.addingTimeInterval(TimeInterval(CGFloat.greatestFiniteMagnitude)))!
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: override method
+    override func updateConstraints() {
+        pageCtrl.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(10)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        super.updateConstraints()
+    }
+    
+    override func removeFromSuperview() {
+        //   timer?.invalidate()
+        timeDisposable?.dispose()
+        super.removeFromSuperview()
+        
     }
     
     // MARK: timer fire
-    func fire(aTimer:Timer) {
+    private func fire() {
         if (urls != nil) && pageCtrl.currentPage + 1 >= urls!.count{
             contentView.setContentOffset(CGPoint.zero, animated: false)
             pageCtrl.currentPage = 0
@@ -168,26 +206,7 @@ class BannerScrollView: UIView,UIScrollViewDelegate {
         print("zhazhazhazha")
     }
     
-    /*
-     #pragma mark - UIScrollViewDelegate
-     - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-     timer.fireDate = [timer.fireDate dateByAddingTimeInterval:MAXFLOAT];
-     }
-     
-     - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-     //   NSLog(@"hello!");
-     _pageControl.currentPage = (int)(scrollView.contentOffset.x / scrollView.frame.size.width);
-     timer.fireDate = [[NSDate date] dateByAddingTimeInterval:FIREtimer];
-     }
-     
-     #pragma mark - imageView tapGestureRecognizer
-     - (void)tap:(UITapGestureRecognizer *)tapGestureRecognizer {
-     NSInteger tag = tapGestureRecognizer.view.tag;
-     if (_block) {
-     _block(tag);
-     }
-     }
-     */
+    
     
     
 }

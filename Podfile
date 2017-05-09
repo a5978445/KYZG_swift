@@ -15,10 +15,19 @@ pod 'PKHUD', '~> 4.0'
 pod 'BXProgressHUD', '~> 2.0'
 pod 'MJExtension'
 pod 'Moya'
+
+
+# RxSwift 套餐
+pod 'RxSwift'
+pod 'RxCocoa'
+#pod 'RxGesture'
 end
 
 
 target ‘KYZG_swiftTests’ do
+    
+    pod 'RxBlocking', '~> 3.0'
+    pod 'RxTest',     '~> 3.0'
     
     pod 'SnapKit', '~> 3.2.0'
     pod 'Alamofire', '~> 4.3.0'

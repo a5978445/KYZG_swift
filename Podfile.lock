@@ -15,6 +15,13 @@ PODS:
   - PinAuto (2.1)
   - PKHUD (4.2.0)
   - Result (3.2.1)
+  - RxBlocking (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.1)
+  - RxTest (3.4.1):
+    - RxSwift (~> 3.4)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
@@ -28,6 +35,10 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.12)
   - Moya
   - PKHUD (~> 4.0)
+  - RxBlocking (~> 3.0)
+  - RxCocoa
+  - RxSwift
+  - RxTest (~> 3.0)
   - SnapKit (~> 3.2.0)
   - SwiftyJSON (~> 3.1.4)
 
@@ -43,9 +54,13 @@ SPEC CHECKSUMS:
   PinAuto: cc406f453a35292a9f892d7f94f5cc71e5e99762
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  RxBlocking: 1e8c41cfe7ca2fc0e19d0e616c553845c63cbbd3
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
+  RxTest: a6fd6e4069face7c6488f96f6c42296b3e44db48
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 2d38d62ad96d20c2060c3f78b2c527f33d5fc5d4
+PODFILE CHECKSUM: 3389b4aab61127c8065afe2e769897aeb5356a44
 
 COCOAPODS: 1.2.0
