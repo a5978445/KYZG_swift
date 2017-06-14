@@ -11,7 +11,7 @@ import SnapKit
 
 class ComposeViewController: UIViewController {
     
-    open var titles:[String]? {
+    var titles:[String]? {
         didSet {
             buttons.titles = titles
         }
@@ -19,14 +19,14 @@ class ComposeViewController: UIViewController {
     
     private lazy var buttons = { () -> NavButtons  in
         let result = NavButtons(frame: CGRect(x: 0, y: 64, width:kScreenWidth, height: 44))
-        result.reponse = {
+        result.reponse = { [unowned self] in
             
             guard $0 < self.childViewControllers.count else {
                 return
             }
             
             self.updateContentView(addChildVC: self.childViewControllers[$0], toRomoveChildVC: self.currentVC)
-             
+            
             self.currentVC = self.childViewControllers[$0]
             
         }
@@ -34,7 +34,7 @@ class ComposeViewController: UIViewController {
     }()
     
     private let contentView = UIView()
-    private var currentVC:UIViewController?
+    private var currentVC: UIViewController?
     
     
     override func viewDidLoad() {
@@ -50,18 +50,15 @@ class ComposeViewController: UIViewController {
         updateContentView(addChildVC: currentVC!, toRomoveChildVC: nil)
         
     }
- 
     
-    func addSubViews() -> Void {
+    
+    private func addSubViews() -> Void {
         view.addSubview(buttons)
         view.addSubview(contentView)
         
-
-        
-       
     }
     
-    func updateContentView(addChildVC:UIViewController,toRomoveChildVC:UIViewController?) -> Void {
+   private func updateContentView(addChildVC:UIViewController,toRomoveChildVC:UIViewController?) -> Void {
         
         if toRomoveChildVC != nil {
             toRomoveChildVC!.view.removeFromSuperview()

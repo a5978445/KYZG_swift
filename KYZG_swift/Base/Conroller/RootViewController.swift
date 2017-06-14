@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RootViewController: UITabBarController {
+    
+    private let disposeBag = DisposeBag()
+    private let titles = ["综合", "动弹", "", "发现", "我的"];
+    private let images = ["tabbar-news", "tabbar-tweet", "", "tabbar-discover", "tabbar-me"];
+    private lazy var selectedImages: [String] = {() -> [String] in return self.images.map { $0 + "-selected" }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +25,19 @@ class RootViewController: UITabBarController {
         
         configureItems()
         
+        
+        configureViewControllers()
+        
+        
+        //   print(rx.delegate)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    private func configureViewControllers() {
         let comprehensiveVC = (self.viewControllers![0] as! UINavigationController).topViewController as! ComposeViewController
         comprehensiveVC.titles = ["资讯","博客","问答","活动"]
         comprehensiveVC.addChildViewController(InformationTableViewController())
@@ -43,49 +64,49 @@ class RootViewController: UITabBarController {
         comprehensiveVC2.addChildViewController(TweetsViewController_1)
         comprehensiveVC2.addChildViewController(TweetsViewController_2)
         comprehensiveVC2.addChildViewController(TweetsViewController_3)
-        
-        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func configureItems()  {
+    private func configureItems()  {
         
-        func addItems() {
+        func addCenterButton() {
             
-            func ceterButtonframe() -> CGRect {
-                let origin = view.convert(tabBar.center, to: tabBar)
-                let buttonSize = CGSize(width: view.frame.width / 5, height: tabBar.frame.height - 4)
-                return CGRect(origin: CGPoint(x:origin.x - buttonSize.width / 2,y:origin.y - buttonSize.height / 2), size: buttonSize)
+            func centerButton() -> UIButton {
+                
+                func centerButtonframe() -> CGRect {
+                    let origin = view.convert(tabBar.center, to: tabBar)
+                    let buttonSize = CGSize(width: view.frame.width / 5, height: tabBar.frame.height - 4)
+                    return CGRect(origin: CGPoint(x:origin.x - buttonSize.width / 2,y:origin.y - buttonSize.height / 2), size: buttonSize)
+                }
+                
+                let centerButton = UIButton(type: .custom)
+                
+                
+                centerButton.frame = centerButtonframe()
+                
+                centerButton.setImage(UIImage(named:"ic_nav_add"), for: .normal)
+                centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for:.highlighted)
+                
+                
+                
+                centerButton.rx.tap.subscribe(onNext: {[unowned self] _ in
+                    let temp = self.selectedIndex
+                    self.selectedIndex = 2;
+                    
+                    let VC = NavigationController(rootViewController: SendTweetsViewController())
+                    self.present(VC, animated: true, completion: {
+                        self.selectedIndex = temp
+                    })
+                })
+                    .disposed(by: disposeBag)
+                return centerButton
             }
             
-            let centerButton = UIButton(type: .custom)
-            
-          
-            centerButton.frame = ceterButtonframe()
-            
-            centerButton.setImage(UIImage(named:"ic_nav_add"), for: .normal)
-            centerButton.setImage(UIImage(named:"ic_nav_add_actived"), for:.highlighted)
             
             
             
-            
-            centerButton.addTarget(self,
-                                action:#selector(RootViewController.handleTap),
-                                   for: .touchUpInside)
-            
-            
-            tabBar.addSubview(centerButton)
+            tabBar.addSubview(centerButton())
             
         }
-        
-        let titles = ["综合", "动弹", "", "发现", "我的"];
-        let images = ["tabbar-news", "tabbar-tweet", "", "tabbar-discover", "tabbar-me"];
-        let selectedImages = images.map { $0 + "-selected" }
-       
         
         for (index,tabBar) in tabBar.items!.enumerated() {
             tabBar.title = titles[index]
@@ -97,21 +118,12 @@ class RootViewController: UITabBarController {
         
         tabBar.items?[2].isEnabled = false;
         
-        addItems()
+        addCenterButton()
     }
     
     
     
-    func handleTap()  {
-        
-        let temp = selectedIndex
-        selectedIndex = 2;
-        
-        let VC = NavigationController(rootViewController: SendTweetsViewController())
-        present(VC, animated: true, completion: {
-            self.selectedIndex = temp
-        })
-    }
+    
     
     
     /*
