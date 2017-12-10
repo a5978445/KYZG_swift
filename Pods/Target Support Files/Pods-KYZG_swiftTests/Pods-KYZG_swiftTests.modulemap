@@ -1,0 +1,6 @@
+framework module Pods_KYZG_swiftTests {
+  umbrella header "Pods-KYZG_swiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
