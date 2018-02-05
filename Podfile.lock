@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.6.0)
   - BXProgressHUD (2.0):
     - PinAuto (~> 2.0)
   - DateToolsSwift (2.0.0)
@@ -7,60 +7,52 @@ PODS:
   - Kingfisher (3.5.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
-  - Moya (8.0.3):
-    - Moya/Core (= 8.0.3)
-  - Moya/Core (8.0.3):
+  - Moya/Core (8.0.5):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Moya/RxSwift (8.0.5):
+    - Moya/Core
+    - RxSwift (~> 3.0)
   - PinAuto (2.1)
   - PKHUD (4.2.0)
-  - Result (3.2.1)
-  - RxBlocking (3.4.1):
-    - RxSwift (~> 3.4)
+  - Result (3.2.4)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
   - RxSwift (3.4.1)
-  - RxTest (3.4.1):
-    - RxSwift (~> 3.4)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.3.0)
   - BXProgressHUD (~> 2.0)
   - DateToolsSwift (~> 2.0.0)
   - HandyJSON (~> 1.6.0)
   - Kingfisher (~> 3.5.0)
   - MJExtension
   - MJRefresh (~> 3.1.12)
-  - Moya
+  - Moya/RxSwift (~> 8.0.3)
   - PKHUD (~> 4.0)
-  - RxBlocking (~> 3.0)
   - RxCocoa
   - RxSwift
-  - RxTest (~> 3.0)
   - SnapKit (~> 3.2.0)
   - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   BXProgressHUD: b206b6e09e90c49eb390a68cc6d427bddaf80e87
   DateToolsSwift: 27336736d877c8734159da1f37afbda2aa704649
   HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
   Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
+  Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   PinAuto: cc406f453a35292a9f892d7f94f5cc71e5e99762
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
-  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
-  RxBlocking: 1e8c41cfe7ca2fc0e19d0e616c553845c63cbbd3
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
-  RxTest: a6fd6e4069face7c6488f96f6c42296b3e44db48
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 3389b4aab61127c8065afe2e769897aeb5356a44
+PODFILE CHECKSUM: 5ea89f6230659f94bc351150a85b35f1a6108101
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0.beta.1

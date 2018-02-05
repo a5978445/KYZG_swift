@@ -12,7 +12,7 @@ import Moya
 enum RequestError: Swift.Error {
    // case mapToJson
     case mapToModel
-   // case statusCode(Int)
+    case statusCode(Int)
     case ackCode(Int)
     case moya(Moya.MoyaError)
 }

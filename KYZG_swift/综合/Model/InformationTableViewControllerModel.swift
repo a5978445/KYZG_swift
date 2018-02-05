@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-
+import RxSwift
 
 
 
@@ -40,19 +40,33 @@ class InformationTableViewControllerModel: NSObject {
     
     func appendNews(complete: @escaping (KYZGResponse<[InformationTableViewCellModel]>) -> Void) {
         KYZGProvider.shareKYZGProvider.requestNews(nextPageToken: self.newsModel.nextPageToken) {[weak self]  response in
-            guard self != nil else {
-                return
+            if let strongSelf = self {
+                switch response {
+                case let .sucess(aNewsModel):
+                    strongSelf.newsModel = strongSelf.newsModel + aNewsModel
+                    strongSelf.cellModels.append(contentsOf: aNewsModel.informations.map {InformationTableViewCellModel(information: $0)})
+                    complete(KYZGResponse.sucess(strongSelf.cellModels))
+                case let .failure(error):
+                    complete(KYZGResponse<[InformationTableViewCellModel]>.failure(error))
+                }
             }
-            switch response {
-            case let .sucess(aNewsModel):
-                self?.newsModel = self!.newsModel + aNewsModel
-                self!.cellModels.append(contentsOf: aNewsModel.informations.map {InformationTableViewCellModel(information: $0)})
-                complete(KYZGResponse.sucess(self!.cellModels))
-            case let .failure(error):
-                complete(KYZGResponse<[InformationTableViewCellModel]>.failure(error))
-            }
-            
         }
+        
+        
+        
+        KYZGProvider.shareKYZGProvider.rxRequestNews(nextPageToken: self.newsModel.nextPageToken)
+            .subscribe(onNext: { response in
+                switch response {
+                case let .sucess(aNewsModel):
+                    self.newsModel = self.newsModel + aNewsModel
+                    self.cellModels.append(contentsOf: aNewsModel.informations.map {InformationTableViewCellModel(information: $0)})
+                    complete(KYZGResponse.sucess(self.cellModels))
+                case let .failure(error):
+                    complete(KYZGResponse<[InformationTableViewCellModel]>.failure(error))
+                }
+            })
+        .dispose()
+        
         
     }
     

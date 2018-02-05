@@ -14,7 +14,7 @@ pod 'MJRefresh', '~> 3.1.12'
 pod 'PKHUD', '~> 4.0'
 pod 'BXProgressHUD', '~> 2.0'
 pod 'MJExtension'
-pod 'Moya'
+pod 'Moya/RxSwift', '~> 8.0.3'
 
 
 # RxSwift 套餐
@@ -24,19 +24,4 @@ pod 'RxCocoa'
 end
 
 
-target ‘KYZG_swiftTests’ do
-    
-    pod 'RxBlocking', '~> 3.0'
-    pod 'RxTest',     '~> 3.0'
-    
-    pod 'SnapKit', '~> 3.2.0'
-    pod 'Alamofire', '~> 4.3.0'
-    pod 'SwiftyJSON', '~> 3.1.4'
-   
-    pod 'Kingfisher', '~> 3.5.0'
-    pod 'DateToolsSwift', '~> 2.0.0'
-    pod 'MJRefresh', '~> 3.1.12'
-    pod 'PKHUD', '~> 4.0'
-    pod 'BXProgressHUD', '~> 2.0'
-    pod 'HandyJSON', '~> 1.6.0'
-end
+
