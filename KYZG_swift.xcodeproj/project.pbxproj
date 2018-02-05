@@ -235,7 +235,7 @@
 		143EF2931E5D291500544B8B /* KYZG_swift */ = {
 			isa = PBXGroup;
 			children = (
-				14BED5821EBAC2970035B614 /* share */,
+				14BED5821EBAC2970035B614 /* Networing */,
 				14AFCEDB1EB333ED00B75272 /* 动弹 */,
 				14AFCEE41EB333ED00B75272 /* 发现 */,
 				14AFCEEA1EB333ED00B75272 /* 添加动弹 */,
@@ -544,7 +544,6 @@
 		14AFCF191EB333ED00B75272 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				14AFCF561EB33AD400B75272 /* NetWorkConstant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -620,13 +619,14 @@
 			path = ParsingXML;
 			sourceTree = "<group>";
 		};
-		14BED5821EBAC2970035B614 /* share */ = {
+		14BED5821EBAC2970035B614 /* Networing */ = {
 			isa = PBXGroup;
 			children = (
 				14BED5831EBAC2B40035B614 /* KYZGAPI.swift */,
 				14BED5851EBB05DC0035B614 /* KYZGRequest.swift */,
+				14AFCF561EB33AD400B75272 /* NetWorkConstant.swift */,
 			);
-			path = share;
+			path = Networing;
 			sourceTree = "<group>";
 		};
 		14D0B4261EC0652100FC627F /* RxGesture */ = {
