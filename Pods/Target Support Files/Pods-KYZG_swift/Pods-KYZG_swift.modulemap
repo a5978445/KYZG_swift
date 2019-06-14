@@ -1,0 +1,6 @@
+framework module Pods_KYZG_swift {
+  umbrella header "Pods-KYZG_swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

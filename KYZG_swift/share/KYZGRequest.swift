@@ -121,7 +121,7 @@ class KYZGProvider: MoyaProvider<KYZG> {
         
         switch input {
         case let .success(response):
-            let dic = JSON(data: response.data)
+            let dic = try! JSON(data: response.data)
             if dic["code"] == 1 {
                 
                 complete(deal(dic))

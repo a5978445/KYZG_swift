@@ -59,7 +59,6 @@
 		14BED5861EBB05DC0035B614 /* KYZGRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BED5851EBB05DC0035B614 /* KYZGRequest.swift */; };
 		14BED5881EBB107A0035B614 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BED5871EBB107A0035B614 /* NewsModel.swift */; };
 		27E8E155786F30F83A0393C6 /* Pods_KYZG_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */; };
-		A03A5CBB1FFCB1E132105F24 /* Pods_KYZG_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +140,6 @@
 		14BED5851EBB05DC0035B614 /* KYZGRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYZGRequest.swift; sourceTree = "<group>"; };
 		14BED5871EBB107A0035B614 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		67A56ED37491039A1801A2BA /* Pods_KYZG_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
-		C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C886BD42A09B275918030C6A /* Pods-KYZG_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		E70438CFCAFCA4ED0A93AE85 /* Pods_KYZG_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYZG_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF402EA77D3872FCC3E4B94C /* Pods-KYZG_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYZG_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +159,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A03A5CBB1FFCB1E132105F24 /* Pods_KYZG_swiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,8 +606,6 @@
 			children = (
 				C886BD42A09B275918030C6A /* Pods-KYZG_swift.debug.xcconfig */,
 				EF402EA77D3872FCC3E4B94C /* Pods-KYZG_swift.release.xcconfig */,
-				C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */,
-				75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -628,7 +622,6 @@
 				143EF28E1E5D291500544B8B /* Frameworks */,
 				143EF28F1E5D291500544B8B /* Resources */,
 				F07B2E25AEC18A67CAE13532 /* [CP] Embed Pods Frameworks */,
-				B6F7E6CD25BA777E83383A2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -643,12 +636,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 143EF2BC1E5D291500544B8B /* Build configuration list for PBXNativeTarget "KYZG_swiftTests" */;
 			buildPhases = (
-				9C88B165B33B050A6699B3B3 /* [CP] Check Pods Manifest.lock */,
 				143EF2A11E5D291500544B8B /* Sources */,
 				143EF2A21E5D291500544B8B /* Frameworks */,
 				143EF2A31E5D291500544B8B /* Resources */,
-				B51DE344F854D471F9446891 /* [CP] Embed Pods Frameworks */,
-				F22B552C5A3D919CF15DF1A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -761,58 +751,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KYZG_swift-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9C88B165B33B050A6699B3B3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B51DE344F854D471F9446891 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6F7E6CD25BA777E83383A2C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F07B2E25AEC18A67CAE13532 /* [CP] Embed Pods Frameworks */ = {
@@ -821,28 +769,40 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BXProgressHUD/BXProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PinAuto/PinAuto.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BXProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinAuto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F22B552C5A3D919CF15DF1A4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYZG_swiftTests/Pods-KYZG_swiftTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KYZG_swift/Pods-KYZG_swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1122,7 +1082,6 @@
 		};
 		143EF2BD1E5D291500544B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C393F94460C7D4527F90A048 /* Pods-KYZG_swiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1138,7 +1097,6 @@
 		};
 		143EF2BE1E5D291500544B8B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75F77F0C157698059B67EBA4 /* Pods-KYZG_swiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
