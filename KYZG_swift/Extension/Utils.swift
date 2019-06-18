@@ -16,7 +16,7 @@ struct Utils {
         
         let stringData = string.data(using: String.Encoding.utf8)
         
-        let QRFilter = CIFilter.init(name: "CIQRCodeGenerator", withInputParameters: nil)!
+        let QRFilter = CIFilter.init(name: "CIQRCodeGenerator", parameters: nil)!
         QRFilter.setValue(stringData, forKey: "inputMessage")
         QRFilter.setValue("M", forKey: "inputCorrectionLevel")
         

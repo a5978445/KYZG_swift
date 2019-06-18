@@ -259,20 +259,20 @@ class TweetTableViewCell: UITableViewCell {
             
             // priaseButton.titleLabel?.textColor = UIColor.gray
             priaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-            priaseButton.setTitleColor(UIColor.gray, for: UIControlState.normal)
+            priaseButton.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             
             //  commentButton.tintColor = UIColor.gray
             commentButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-            commentButton.setTitleColor(UIColor.gray, for: UIControlState.normal)
+            commentButton.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             
             //  transpondButton.tintColor = UIColor.gray
             transpondButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-            transpondButton.setTitleColor(UIColor.gray, for: UIControlState.normal)
+            transpondButton.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             
             
-            priaseButton.setTitle("赞", for: UIControlState.normal)
-            commentButton.setTitle("评论", for: UIControlState.normal)
-            transpondButton.setTitle("转发", for: UIControlState.normal)
+            priaseButton.setTitle("赞", for: UIControl.State.normal)
+            commentButton.setTitle("评论", for: UIControl.State.normal)
+            transpondButton.setTitle("转发", for: UIControl.State.normal)
             
             addSubview(timeInfoLabel)
             addSubview(commentButton)
@@ -377,7 +377,7 @@ class TweetTableViewCell: UITableViewCell {
     
     convenience init(reuseIdentifier: String?,model:TweetModel) {
         
-        self.init(style:UITableViewCellStyle.default,reuseIdentifier:reuseIdentifier)
+        self.init(style:UITableViewCell.CellStyle.default,reuseIdentifier:reuseIdentifier)
         bodyView = BodyView(frame: CGRect(x: 0, y: 0, width: kScreenWidth - 75, height: 0),type:model.infoType)
         
         
@@ -395,7 +395,7 @@ class TweetTableViewCell: UITableViewCell {
         
     }
     
-    private override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    private override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
 
         super.init(style:style,reuseIdentifier:reuseIdentifier)

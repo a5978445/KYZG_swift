@@ -43,16 +43,16 @@ class MyTableViewController: UITableViewController {
         }
         
         aMyTableHeaderView.showHeadImage = { [unowned self] in
-            let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertControllerStyle.actionSheet)
-            alertController.addAction(UIAlertAction(title: "更换头像", style: UIAlertActionStyle.default, handler: { action in
+            let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertController.Style.actionSheet)
+            alertController.addAction(UIAlertAction(title: "更换头像", style: UIAlertAction.Style.default, handler: { action in
                 self.showPhotoSlectAlertView()
             }))
             
-            alertController.addAction(UIAlertAction(title: "查看大头像", style: UIAlertActionStyle.default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "查看大头像", style: UIAlertAction.Style.default, handler: { action in
                 
             }))
             
-            alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { action in
+            alertController.addAction(UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: { action in
                 
             }))
                 print(self.navigationController)
@@ -82,7 +82,7 @@ class MyTableViewController: UITableViewController {
         
         tableView.tableHeaderView = headerView
         tableView.dataSource = dataSouce
-        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 44, 0)
+        self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 44, right: 0)
     }
     
     
@@ -117,7 +117,7 @@ class MyTableViewController: UITableViewController {
         func showCameraCtrl() {
             
             let p = UIImagePickerController()
-            p.sourceType = UIImagePickerControllerSourceType.camera;
+            p.sourceType = UIImagePickerController.SourceType.camera;
             p.allowsEditing = true;
             p.delegate = self;
             self.present(p, animated: true, completion: nil)
@@ -127,7 +127,7 @@ class MyTableViewController: UITableViewController {
         func showPhotoSelectCtrl() {
             
             let p = UIImagePickerController()
-            p.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            p.sourceType = UIImagePickerController.SourceType.photoLibrary;
             p.allowsEditing = true;
             p.delegate = self;
             self.present(p, animated: true, completion: nil)
@@ -135,21 +135,21 @@ class MyTableViewController: UITableViewController {
         }
         
         func creatAlertController() -> UIAlertController {
-            let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let alertController = UIAlertController(title: nil, message: "选择操作", preferredStyle: UIAlertController.Style.actionSheet)
             
             
-            alertController.addAction(UIAlertAction(title: "相机", style: UIAlertActionStyle.default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "相机", style: UIAlertAction.Style.default, handler: { action in
                 showCameraCtrl()
             }))
             
             
-            alertController.addAction(UIAlertAction(title: "相册", style: UIAlertActionStyle.default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "相册", style: UIAlertAction.Style.default, handler: { action in
                 
                 showPhotoSelectCtrl()
             }))
             
             
-            alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { action in
+            alertController.addAction(UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: { action in
                 
             }))
             return alertController

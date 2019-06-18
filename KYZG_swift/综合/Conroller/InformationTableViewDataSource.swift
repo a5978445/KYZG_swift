@@ -21,7 +21,7 @@ class InformationTableViewDataSource: NSObject,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:InformationTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as! InformationTableViewCell?
         if cell == nil {
-            cell = InformationTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+            cell = InformationTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         }
         
         // cell?.textLabel?.text = "hello"

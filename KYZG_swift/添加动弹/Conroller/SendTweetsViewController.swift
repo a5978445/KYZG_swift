@@ -17,8 +17,8 @@ class SendTweetsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         title = "谈一谈"
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItemStyle.done, target: self, action: #selector(SendTweetsViewController.cancel))
-         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发送", style: UIBarButtonItemStyle.done, target: self, action: #selector(SendTweetsViewController.send))
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItem.Style.done, target: self, action: #selector(SendTweetsViewController.cancel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发送", style: UIBarButtonItem.Style.done, target: self, action: #selector(SendTweetsViewController.send))
         
         view.addSubview(textView)
         textView.snp.makeConstraints { make in

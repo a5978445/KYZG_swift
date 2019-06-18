@@ -81,8 +81,8 @@ class QuartzCanvasView: UIView {
                 keyFrameAnimation.repeatDuration = CFTimeInterval(MAXFLOAT);
                 //        keyFrameAnimation.autoreverses = YES;//翻转动画
                 
-                keyFrameAnimation.calculationMode = kCAAnimationPaced;
-                keyFrameAnimation.rotationMode = kCAAnimationRotateAuto;
+                keyFrameAnimation.calculationMode = CAAnimationCalculationMode.paced;
+                keyFrameAnimation.rotationMode = CAAnimationRotationMode.rotateAuto;
                 keyFrameAnimation.isRemovedOnCompletion = false;
                 keyFrameAnimation.duration = 5;
                 

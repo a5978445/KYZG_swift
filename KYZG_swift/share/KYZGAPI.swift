@@ -85,7 +85,7 @@ extension KYZG: TargetType {
         switch self {
         case .news(_):
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-        case .imageInfo():
+        case .imageInfo:
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
         case .tweets(_):
             return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!

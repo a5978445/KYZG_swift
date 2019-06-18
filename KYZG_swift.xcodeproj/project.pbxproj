@@ -681,7 +681,7 @@
 					143EF2901E5D291500544B8B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = F8ML633GQS;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					143EF2A41E5D291500544B8B = {
@@ -1038,7 +1038,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1076,7 +1077,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "boliBaiyYun.KYZG-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KYZG_swift/KYZG_swift-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

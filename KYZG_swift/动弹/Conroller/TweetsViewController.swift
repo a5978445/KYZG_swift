@@ -34,7 +34,7 @@ class TweetsViewController: UITableViewController {
         
         // Do any additional setup after loading the view.
         tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.rowHeight = UITableView.automaticDimension;
         tableView.dataSource = dataSource
         
         

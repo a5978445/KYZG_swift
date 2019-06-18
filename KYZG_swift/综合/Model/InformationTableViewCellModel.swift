@@ -69,7 +69,7 @@ class InformationTableViewCellModel: NSObject {
     private func getAttributedCommentCount() -> NSAttributedString {
     
             return NSAttributedString(string: "回复：" + String(information.commentCount),
-                                                        attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
+                                      attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 12),NSAttributedString.Key.foregroundColor:UIColor.gray])
        
     }
     
@@ -77,7 +77,7 @@ class InformationTableViewCellModel: NSObject {
     private func getTimeString() -> NSAttributedString {
         
         let aDate = Date(dateString: information.pubDate, format: "yyyy-MM-dd HH:mm:ss")
-        return  NSAttributedString(string: aDate.timeAgoSinceNow, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
+        return  NSAttributedString(string: aDate.timeAgoSinceNow, attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 12),NSAttributedString.Key.foregroundColor:UIColor.gray])
         
         
     }
@@ -85,7 +85,7 @@ class InformationTableViewCellModel: NSObject {
     private func getBodyString() -> NSAttributedString {
   
             return  NSAttributedString(string: information.body,
-                                            attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 12),NSForegroundColorAttributeName:UIColor.gray])
+                                       attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 12),NSAttributedString.Key.foregroundColor:UIColor.gray])
   
     }
     

@@ -19,10 +19,10 @@ class RootViewController: UITabBarController {
         
         let comprehensiveVC = (self.viewControllers![0] as! UINavigationController).topViewController as! ComposeViewController
         comprehensiveVC.titles = ["资讯","博客","问答","活动"]
-        comprehensiveVC.addChildViewController(InformationTableViewController())
-        comprehensiveVC.addChildViewController(BlogTableViewController())
-        comprehensiveVC.addChildViewController(QuestionsTableViewController())
-        comprehensiveVC.addChildViewController(ActivityTableViewController())
+        comprehensiveVC.addChild(InformationTableViewController())
+        comprehensiveVC.addChild(BlogTableViewController())
+        comprehensiveVC.addChild(QuestionsTableViewController())
+        comprehensiveVC.addChild(ActivityTableViewController())
         
         
         let comprehensiveVC2 = (self.viewControllers![1] as! UINavigationController).topViewController as! ComposeViewController
@@ -30,19 +30,19 @@ class RootViewController: UITabBarController {
         
         let TweetsViewController_1 = TweetsViewController()
         TweetsViewController_1.tweetType = .newTweet
-        TweetsViewController_1.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        TweetsViewController_1.tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 44, right: 0)
         
         let TweetsViewController_2 = TweetsViewController()
         TweetsViewController_2.tweetType = .hotTweet
-        TweetsViewController_2.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        TweetsViewController_2.tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 44, right: 0)
         
         let TweetsViewController_3 = TweetsViewController()
         TweetsViewController_3.tweetType = .myTweet
-        TweetsViewController_3.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+        TweetsViewController_3.tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 44, right: 0)
         
-        comprehensiveVC2.addChildViewController(TweetsViewController_1)
-        comprehensiveVC2.addChildViewController(TweetsViewController_2)
-        comprehensiveVC2.addChildViewController(TweetsViewController_3)
+        comprehensiveVC2.addChild(TweetsViewController_1)
+        comprehensiveVC2.addChild(TweetsViewController_2)
+        comprehensiveVC2.addChild(TweetsViewController_3)
         
         
     }
@@ -93,7 +93,8 @@ class RootViewController: UITabBarController {
             tabBar.selectedImage = UIImage(named: selectedImages[index])?.withRenderingMode(.alwaysOriginal)
         }
         
-        tabBar.tintColor = UIColor(colorLiteralRed: 50/255.0, green: 205/255.0, blue: 100/255.0, alpha: 1.0)
+        
+        tabBar.tintColor = UIColor(red: 50/255.0, green: 205/255.0, blue: 100/255.0, alpha: 1.0)
         
         tabBar.items?[2].isEnabled = false;
         
@@ -102,7 +103,7 @@ class RootViewController: UITabBarController {
     
     
     
-    func handleTap()  {
+    @objc func handleTap()  {
         
         let temp = selectedIndex
         selectedIndex = 2;

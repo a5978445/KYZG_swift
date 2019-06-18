@@ -157,7 +157,7 @@ class BannerScrollView: UIView,UIScrollViewDelegate {
     }
     
     // MARK: timer fire
-    func fire(aTimer:Timer) {
+    @objc func fire(aTimer:Timer) {
         if (urls != nil) && pageCtrl.currentPage + 1 >= urls!.count{
             contentView.setContentOffset(CGPoint.zero, animated: false)
             pageCtrl.currentPage = 0

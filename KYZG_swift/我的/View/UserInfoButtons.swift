@@ -41,7 +41,7 @@ class UserInfoButtons: UIView {
                 
                 let button = UIButton(frame: CGRect(x: buttonWidth * (CGFloat)(index), y: 0, width: buttonWidth, height: buttonHeight))
                 
-                button.setAttributedTitle(attributedString(aMultistageTitle: aMultistageTitle), for: UIControlState.normal)
+                button.setAttributedTitle(attributedString(aMultistageTitle: aMultistageTitle), for: UIControl.State.normal)
                 button.titleLabel?.numberOfLines = 0;
                 button.titleLabel?.textAlignment = NSTextAlignment.center;
                 
@@ -59,18 +59,18 @@ class UserInfoButtons: UIView {
     
     func attributedString(aMultistageTitle:MultistageTitle) -> NSAttributedString {
         
-        let attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 24),
-                          NSForegroundColorAttributeName:UIColor.white]
+        let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 24),
+                          NSAttributedString.Key.foregroundColor:UIColor.white]
         
         let title = NSAttributedString(string: aMultistageTitle.title, attributes:attributes)
         
         
-        let fenGe = NSAttributedString(string: "\n", attributes:[NSFontAttributeName:UIFont.systemFont(ofSize: 12),
-                                                                 NSForegroundColorAttributeName:UIColor.white])
+        let fenGe = NSAttributedString(string: "\n", attributes:[NSAttributedString.Key.font:UIFont.systemFont(ofSize: 12),
+                                                                 NSAttributedString.Key.foregroundColor:UIColor.white])
         
         let subTitle = NSAttributedString(string: aMultistageTitle.subTitle,
-                                          attributes:[NSFontAttributeName:UIFont.systemFont(ofSize: 12),
-                                                      NSForegroundColorAttributeName:UIColor.white])
+                                          attributes:[NSAttributedString.Key.font:UIFont.systemFont(ofSize: 12),
+                                                      NSAttributedString.Key.foregroundColor:UIColor.white])
         
         
         

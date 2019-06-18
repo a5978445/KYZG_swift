@@ -26,10 +26,10 @@ class InformationTableViewController: UITableViewController {
             tableView.tableHeaderView = imageScrollView
             tableView.tableHeaderView?.backgroundColor = UIColor.red
             tableView.backgroundColor = UIColor.green
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0)
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44, right: 0)
             //利用iOS8新特性计算cell的实际高度
             tableView.estimatedRowHeight = 80
-            tableView.rowHeight = UITableViewAutomaticDimension;
+            tableView.rowHeight = UITableView.automaticDimension;
             tableView.dataSource = dataSource
             
             tableView.mj_header = MJRefreshNormalHeader {

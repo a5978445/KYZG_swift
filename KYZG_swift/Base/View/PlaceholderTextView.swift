@@ -64,14 +64,14 @@ class PlaceholderTextView: UITextView {
         addSubview(placeholderView)
 
         
-        NotificationCenter.default.addObserver(self, selector: #selector(PlaceholderTextView.textDidChange(notification:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PlaceholderTextView.textDidChange(notification:)), name: UITextView.textDidChangeNotification, object: nil)
      
         addObserver(self, forKeyPath: kTextKey, options: .new, context: nil)
         
         
     }
     
-    func textDidChange(notification:NSNotification) {
+    @objc func textDidChange(notification:NSNotification) {
         
         placeholderView.isHidden = hasText
         

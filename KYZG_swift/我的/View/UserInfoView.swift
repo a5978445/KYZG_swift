@@ -64,7 +64,7 @@ class UserInfoView: UIView {
         func addHeadImageView() -> Void {
             
             // headimageView.backgroundColor = [UIColor redColor];
-            headimageView.contentMode = UIViewContentMode.scaleAspectFit;
+            headimageView.contentMode = UIView.ContentMode.scaleAspectFit;
             headimageView.layer.cornerRadius = 25;
             headimageView.layer.masksToBounds = true;
             headimageView.image = UIImage(named:"default-portrait")
@@ -114,9 +114,9 @@ class UserInfoView: UIView {
         
         func addSetButton() -> Void {
             
-            setButton.setImage(UIImage(named:"btn_my_setting"), for: UIControlState.normal)
+            setButton.setImage(UIImage(named:"btn_my_setting"), for: UIControl.State.normal)
             
-            setButton.addTarget(self, action: #selector(UserInfoView.setAction(button:)), for: UIControlEvents.touchUpInside)
+            setButton.addTarget(self, action: #selector(UserInfoView.setAction(button:)), for: UIControl.Event.touchUpInside)
             
             self.addSubview(setButton)
             
@@ -124,9 +124,9 @@ class UserInfoView: UIView {
         
         func addCodeButton() -> Void {
             
-            codeButton.setImage(UIImage(named:"btn_qrcode"), for: UIControlState.normal)
+            codeButton.setImage(UIImage(named:"btn_qrcode"), for: UIControl.State.normal)
             
-            codeButton.addTarget(self, action: #selector(UserInfoView.codeAction(button:)), for: UIControlEvents.touchUpInside)
+            codeButton.addTarget(self, action: #selector(UserInfoView.codeAction(button:)), for: UIControl.Event.touchUpInside)
             self.addSubview(codeButton)
         }
         
@@ -146,7 +146,7 @@ class UserInfoView: UIView {
             
             
             self.addSubview(animationView!)
-            self.sendSubview(toBack: animationView!)
+            self.sendSubviewToBack(animationView!)
         }
         
         addSetButton()

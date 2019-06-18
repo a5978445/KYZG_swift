@@ -59,7 +59,7 @@ class NavButtons: UIView {
                 var result = [UIButton]()
                 for (index,title) in titles! .enumerated() {
                     let button = defaultButton()
-                    button.setTitle(title, for: UIControlState.normal)
+                    button.setTitle(title, for: UIControl.State.normal)
                     
                     button.tag = index
                     
@@ -105,7 +105,7 @@ class NavButtons: UIView {
     
  
     
-    func click(button: UIButton) -> Void {
+    @objc func click(button: UIButton) -> Void {
         
         // print(button.tag)
         func setSlectedButton() {

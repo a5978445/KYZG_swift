@@ -21,13 +21,13 @@ class ComposeViewController: UIViewController {
         let result = NavButtons(frame: CGRect(x: 0, y: 64, width:kScreenWidth, height: 44))
         result.reponse = {
             
-            guard $0 < self.childViewControllers.count else {
+            guard $0 < self.children.count else {
                 return
             }
             
-            self.updateContentView(addChildVC: self.childViewControllers[$0], toRomoveChildVC: self.currentVC)
+            self.updateContentView(addChildVC: self.children[$0], toRomoveChildVC: self.currentVC)
              
-            self.currentVC = self.childViewControllers[$0]
+            self.currentVC = self.children[$0]
             
         }
         return result
@@ -44,7 +44,7 @@ class ComposeViewController: UIViewController {
         
         addSubViews()
         
-        currentVC = childViewControllers[0]
+        currentVC = children[0]
         
         
         updateContentView(addChildVC: currentVC!, toRomoveChildVC: nil)
